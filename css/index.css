@@ -1,0 +1,472 @@
+
+/*搜索*/
+body{
+   
+}
+a,a:hover,a:active,a:visited,a:link,a:focus{
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    outline:none;
+    background: none;
+    text-decoration: none;
+}
+.afterNone:after{
+    content: none;
+}
+.none{
+	display: none;
+}
+.weui-search-bar{
+	background-color: #fff;
+}
+.weui-search-bar__form{
+	border-radius: 5px;
+}
+.weui-search-bar__form .weui-search-bar__label{
+	background:#f2f2f2;	
+}
+.swiper-container {
+	width: 100%;
+} 
+.swiper-container img {
+	display: block;
+	width: 100%;
+	height: 140px;
+}
+.swiper-pagination-bullet-active{
+	background: #fff;
+}
+.type{
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	text-align: left;
+    background: #fff;
+}
+.type .type1 img{
+	width: 50px;
+    height: 50px;
+	vertical-align: middle;
+	-moz-border-radius: 50%; /* Firefox */
+  	-webkit-border-radius: 50%; /* Safari 和 Chrome */
+	border-radius: 50%;
+}
+.type .type1{
+	display: inline-block;
+	width: 25%;
+	padding: 10px 0;
+    text-align: center;
+}
+.type .type1 a{
+	display: block;
+}
+.type .type1 a span{
+	display: block;
+	text-align: center;
+	font-size: 13px;
+	color:#666;
+}
+.group{
+	background: #fff;
+	padding-bottom: 1px;
+}
+.group .groupTitle{
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px 0;
+}
+.group .groupTitle img{
+	width: 26px;
+	vertical-align: middle;
+}
+.group .groupTitle span{
+	font-size: 13px;
+	display: inline-block;
+	height: 26px;
+	line-height: 26px;
+	padding-left: 10px;
+	box-sizing: border-box;
+}
+.group .groupContent{
+	display: flex;
+	justify-content:space-around;
+}
+.group .groupContent a{
+	display: block;
+}
+.group .groupContent .group1{
+	margin: 0 10px;
+    flex: 1;
+}
+#seckills .group1{
+    display:inline-block;
+    width:33%;
+    padding:5px 0 0 0;
+    flex:none;
+}
+#seckills{
+    padding-bottom: 20px;
+}
+.group .groupContent .group1 img{
+	width: 100%;
+}
+.group .weui-cell__bd{
+	color:#666666
+}
+.group .weui-cell__ft{
+	color:#ff4444;
+	font-size: 12px;
+}
+.group .tejia .weui-cell__ft{
+	color:#702501;
+	font-size: 10px;
+}
+.group .tejia .weui-cell__ft span{
+	display: inline-block;
+	background:#702501;
+	color:#fff;
+	width: 20px;
+	padding:3px;
+	box-sizing: border-box;
+	border-radius:6px;
+}
+.group .weui-cell__ft:after{
+	border-color:#ff4444;
+}
+.group .tejia img{
+	width: 20px;
+	vertical-align: middle;
+    border-radius:5px;
+}
+.group .weui-cell__bd p{
+	font-size: 13px;
+}
+.group .weui-cell__bd h6{
+	color:#000000;
+	font-weight:bold;
+	font-size:13px;
+}
+.group .tejia span.oneLeft{
+	margin-left: 6px;
+}
+.group .tejiaBg{
+	background:#fff9e4;
+	margin:10px;
+	box-sizing:border-box;
+	border-radius:10px;
+}
+.group .groupContent.pintuan .group1 img{
+    /* height: 160px;*/
+    min-height:160px;_height:expression(this.height > 160 ? "160px" : this.height);
+}
+.weui-cells.marginNone{
+	border-radius:10px;
+	background:#fff9e4;
+}
+.marginNone.weui-cells:before,.marginNone.weui-cells:after{
+	content: none;
+}
+.like {
+width:150px;
+	text-align:center;
+	margin: 10px auto;
+	font-size:12px;
+	color:#666666;
+	background:url(https://qncdn.playonwechat.com/shangcheng/line1.png) no-repeat center;
+	background-size:contain;
+}
+.weui-tab .weui-navbar__item{
+	padding: 6px 0;
+	font-size: 13px;
+}
+.weui-tab .weui-navbar__item.active span{
+	display:inline-block;
+	padding:0 10px;
+	background:#fc5558;
+	color:#fff;
+	border-radius:50%;
+	height:25px;
+	line-height:25px;
+}
+.weui-navbar__item:after{
+	content:none;
+}
+.weui-navbar + .weui-tab__bd {
+    padding-top: 36px;
+}
+.more .weui-cell.weui-cell_link{
+	color:#666666;
+	font-size: 13px;
+}
+.liebiao .weui-media-box{
+	padding: 10px 15px;
+}
+.weui-media-box__desc{
+	color:#000000;
+    font-size: 12px;
+}
+.weui-cell.caozuo{
+	padding: 0px;
+	font-size: 13px;
+	margin-top: 16px;
+}
+.caozuo .service-price{
+	color:#ff4444;
+}
+.caozuo .service-gouwu{
+	padding: 0 20px;
+    position: absolute;
+    right: -4px;
+    z-index: 99;
+}
+.caozuo .service-gouwu img{
+    width: 28px;
+    height: 28px;
+}
+.weui-cell.caozuo:before{
+	content: none;
+}
+.weui-media-box_appmsg .weui-media-box__hd{
+	width: 80px;
+	height: 80px;
+}
+.weui-media-box_appmsg .weui-media-box__hd img{
+    height: 80px;
+}
+.weui-cell.more{
+	font-size:13px;
+	text-align:center;
+	padding:10px;
+	background:#fff;
+	margin:8px 0 100px 0;
+}
+.weui-cell.more a{
+	color:#666666;
+	display: block;
+}
+.bg{
+    width: 100%;
+    height: inherit;
+    background: #000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: 6;
+    overflow: hidden;
+}
+.carBox{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    z-index: 1111;
+}
+.carBox .top{
+    display: flex;
+}
+.carBox .padding{
+    width: 90%;
+    margin: 0 auto
+}
+.carBox .top .left{
+    width: 70px;
+    height: 70px;
+}
+.carBox .top .left img{
+	width: 100%;
+}
+.carBox .top .left img{
+   border-radius: 5px;
+   border:1px solid #fff;
+   position: relative;
+   top:-10px;
+   z-index: 9
+}
+.carBox .top .left img{
+   width:70px;
+   height: 70px;
+}
+.carBox .top .del img{
+    width: 100%;
+    height:100%;
+}
+.carBox .top .right{
+    flex: 1;
+    padding:10px 0 0 0;
+}
+.carBox .top .right span,.carBox .mid .buy span{
+    display: block;
+    font-weight: normal;
+    font-size:12px;
+    line-height:20px;
+}
+.carBox .top .del{
+    width: 20px;
+    height: 20px; 
+    padding: 10px;  
+    cursor: pointer;
+}
+.carBox .top .right{
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;width: 100%;
+    padding-left:10px;
+}
+.carBox .top .right span.price{
+    color:#ff4444;
+    padding-top:5px;
+    text-align: left;
+}
+.carBox .top .right span.price span{
+	display: inline-block;
+}
+.carBox .top .shuoming{
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align: left;
+}
+.carBox .mid{
+    display: flex;
+    justify-content:space-between;
+    padding: 10px 0;
+}
+.carBox .mid:after{
+    content:" ";
+    display: inline-block;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    border:1px solid #e5e5e5;
+    -webkit-transform:scaleY(0.5);
+    transform:scaleY(0.5);
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+    box-sizing:border-box;
+}
+.carBox .mid .num{
+    display: flex;
+    position:relative;
+    top:5px;
+}
+.carBox .mid .num button,.carBox .mid .num input{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding:0;
+    text-align: center;
+}
+.carBox .mid .num input{
+    font-size: 12px;
+    border:1px solid #e5e5e5;
+    border-left: 0;
+    border-right:0;
+    box-sizing: border-box;
+    position: relative;
+    top: 0px;
+}
+.carBox .mid button{
+    border-radius:none;
+    font-size: 12px;
+    border:1px solid #e5e5e5; 
+}
+.carBox button::after{
+    content:none;
+}
+ .carBox .mid button.reduce{
+    border-radius: 4px 0 0 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.carBox .mid button.add{
+    border-radius: 0 4px 4px 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+} 
+.normal{ 
+   color: black; 
+} 
+.disabled{ 
+   color: #ccc; 
+} 
+.carBox .mid .gray{
+   color:#949292;
+}
+.btn{
+    display: flex;
+    width: 110%;
+    position: relative;
+    left: -5%;
+}
+.btn button{
+    flex: 1;
+    width:100%;
+    font-size:15px;
+    padding:12px 0;
+    background-color:#F8F8F8;
+}
+.btn .addcar{
+    background: #ff8855;
+    color:#fff;
+    border-radius: 0;
+}
+.btn .buy{
+    background: #ff4444;
+    color:#fff;
+    border-radius: 0;
+}
+.nextUrl{
+    width: 100%;
+}
+.kuanshi{
+    text-align: left;
+}
+.kuanshi .title{
+    font-size: 14px;
+    padding: 4px 0;
+}
+.kuanshi .leibie{
+    margin:0 0 10px 0;
+}
+.kuanshi .leibie .text{
+    display: inline-block;
+    font-size: 12px;
+    border:1px solid #e5e5e5; 
+    border-radius: 3px;
+    padding: 5px 10px; 
+    box-sizing: border-box;
+    margin-right:5px;
+    position: relative;
+}
+.kuanshi .leibie .text.white{
+    background: #fff;
+    color:#000;
+}
+.kuanshi .leibie .text.red{
+    background: #ff4444;
+    border-color:#ff4444;
+    color:#fff;
+}
+.all{
+    font-size:13px;
+    text-align: center;
+    padding:10px;
+    background: #fff;
+    margin: 8px 0 50px 0;
+    color:#666666;
+}
+.modeList{
+    background: #fff;
+    width:100%;
+}
+.chakan{
+   width: 100%;
+}
+#all .weui-panel.weui-panel_access{
+    margin-top: 0!important;
+}
+.none{
+    display: none;
+}
+.show{
+    display: block;
+}

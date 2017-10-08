@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="明星美食街" />
+    <meta name="description" content="明星美食街" />
+    <title>精选</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery-weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/more.css">
+  <style type="text/css">
+      body, html {
+        height: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+  </style>
+  <body ontouchstart>
+      <div class="app">
+          <div class="boxList">
+              <div class="chose-list" id="goodsList">
+                
+                  
+              </div> 
+              <div class="weui-loadmore" id="loadMsg" style="display: none">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+              </div>
+          </div> 
+      </div>
+      <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+      <script type="text/javascript" src="../js/jquery-weui.js"></script>
+      <script type="text/javascript" src="../js/vue.min.js"></script>
+      <script type="text/javascript" src="../js/fastclick.js"></script>
+      <script type="text/javascript">
+        $(function() {
+           FastClick.attach(document.body);
+        });
+      </script>
+      <script type="text/javascript" src="../js/public.js"></script>
+      <script type="text/javascript">
+      var loading = false;
+      var page = 1;
+      $(document.body).infinite().on("infinite", function() {
+        var oldPage = page;
+        var reqPage = oldPage + 1;
+       console.log("成功");
+        if(loading) return;
+        loading = true;
+        $("#loadMsg").show();
+        $.ajax({
+              type: "get",
+              async: false,
+              url: apiRoot+'/api/goods-list?sign='+sign+'&operator_id='+ operator_id,
+              data: {
+                //page: reqPage
+                //cate_id: that.data.cate_id
+              },
+              cache: false,
+              dataType: "json",
+              success: function(data) {
+                console.log(data);
+                var goodsList = data.data.goodsList; 
+                if(goodsList.length != 0){
+                  var informArr = '';
+                  for(var i=0;i< goodsList.length;i++){
+                      var informStr="<a class=\"chose-item\" href=\"inform.html?gid="+goodsList[i].gid+"\">"+
+                                        "<div class=\"chose-img\">"+
+                                          "<img src=\""+goodsList[i].picture+"\">"+
+                                        "</div>"+
+                                        "<div class=\"chose-text\">"+
+                                          "<div class=\"chose-title\">"+goodsList[i].good_name+"</div>"+
+                                          "<div class=\"price\">￥"+goodsList[i].price+"</div>"+
+                                        "</div>"+
+                                    "</a> ";
+                      informArr+=informStr;
+                      //page = oldPage + 1;
+                      $("#loadMsg").hide();
+                      loading = false;
+                    }
+                    $('#goodsList').append(informArr)
+                }else{
+                  console.log("null")
+                }
+              },
+              error: function(e) {
+                alert("失败");
+              },
+            });
+          loading = false;
+      });
+
+
+
+      $.ajax({
+          type:"get",
+          url : apiRoot+'/api/goods-list?sign='+sign+'&operator_id='+ operator_id,
+          data: {
+            //cate_id: that.data.cate_id
+          },
+          dataType : 'json',
+          success : function(data){
+              console.log(data); 
+              var goodsList = data.data.goodsList; 
+              if(goodsList.length != 0){
+                var informArr = '';
+                for(var i=0;i< goodsList.length;i++){
+                    var informStr="<a class=\"chose-item\" href=\"inform.html?gid="+goodsList[i].gid+"\">"+
+                                      "<div class=\"chose-img\">"+
+                                        "<img src=\""+goodsList[i].picture+"\">"+
+                                      "</div>"+
+                                      "<div class=\"chose-text\">"+
+                                        "<div class=\"chose-title\">"+goodsList[i].good_name+"</div>"+
+                                        "<div class=\"price\">￥"+goodsList[i].price+"</div>"+
+                                      "</div>"+
+                                  "</a> ";
+                      informArr+=informStr;
+                  }
+                  $('#goodsList').append(informArr)
+              }else{
+                console.log("null")
+              }
+          },
+          error : function(e){
+            console.log(JSON.stringify(e));
+          }
+      });
+          
+      </script>
+    
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	  <meta name="renderer" content="webkit">
+	  <meta content="yes" name="apple-mobile-web-app-capable">
+	  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+	  <meta content="telephone=no" name="format-detection">
+	  <meta name="msapplication-tap-highlight" content="no">
+	  <meta content="email=no" name="format-detection" />
+	  <meta name="keywords" content="明星美食街" />
+	  <meta name="description" content="明星美食街" />
+	  <title>详情</title>
+	  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+	  <link rel="stylesheet" type="text/css" href="../css/jquery-weui.css">
+	  <link rel="stylesheet" type="text/css" href="../css/weui.css">
+	  <link rel="stylesheet" type="text/css" href="../css/inform.css">
+	  <link rel="stylesheet" type="text/css" href="../css/bar.css">
+	  <link rel="stylesheet" type="text/css" href="../css/share.css">
+</head>
+<body>
+	<div id="app">
+		<div id="newsimg"></div>
+		<!-- swiper -->
+		<div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
+			  <div class="swiper-wrapper"  id="swiper">
+			    <!-- <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+			    <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
+			    <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div> -->
+			  </div>
+			  <!-- If we need pagination -->
+	      	<div class="swiper-pagination" id="pagination"></div>
+		</div>
+		<!-- weui-media-box__desc -->
+		<div class="weui-cells marginNone bgColor">
+	          <div class="weui-cell">
+		            <div class="weui-cell__bd weui-media-box__desc">
+		              <p class="good_name"></p>
+		            </div>
+	          </div>
+	          <div class="weui-cell afterNone">
+		            <div class="weui-cell__bd">
+		              <p class="red" id="price">￥<span class="low_price"></span><span class="high_price"></span></p>
+		            </div>
+	          </div>
+	          <div class="weui-cell">
+		            <div class="weui-cell__bd">
+		              <p>运费：￥<span id="expenses">11</span></p>
+		            </div>
+		            <div class="weui-cell__ft">剩余：<span class="total_stock"></span></div>
+	          </div>
+	          <a class="weui-cell weui-cell_access" href="javascript:;" id="xuanze"  onclick="addCar()">
+	            <div class="weui-cell__bd">
+	              <p>选择：<span id="shuxing"> </span></p>
+	            </div>
+	            <div class="weui-cell__ft">
+	            </div>
+	          </a>
+	          <div class="weui-cells marginAdd">
+					<a class="weui-cell weui-cell_access" href="javascript:;">
+			            <div class="weui-cell__hd"><img src="https://qncdn.playonwechat.com/shangcheng/renzheng.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+			            <div class="weui-cell__bd">
+			              <p>店铺认证</p>
+			            </div>
+			            <div class="weui-cell__hd"><img src="https://qncdn.playonwechat.com/shangcheng/renzheng.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
+			            <div class="weui-cell__bd">
+			              <p>担保交易</p>
+			            </div>
+			        </a>
+		      </div>
+		      <div class="weui-cell afterNone">
+		            <div class="weui-cell__bd">
+		              <p>商品详情</p>
+		            </div>
+	          </div>
+	          <div class="allImg" id="allImg">
+	          		<!-- <img src="https://shop.playonwechat.com/assets/images/goods-detail/201709/微信图片_20170905192653.png"> -->
+	          </div>
+        </div>
+        <!-- bar -->
+        <div class="carBox">
+        	<div class="flex">
+	        	<div class="one">
+	        		<div class="oneList">
+	        			<div class="like" onclick="like()">
+			        		<a href="javascript:;">
+			        			<span><img id="qiehuan" src="../images/like.png"></span>
+			        			<span>收藏</span>
+			        		</a>
+			        	</div>
+			        	<div class="index">
+		        			<a href="index.html">
+			        			<span><img src="../images/shouye.png"></span>
+			        			<span>首页</span>
+			        		</a>
+		        		</div>
+		        	</div>
+	        	</div>
+	        	<div class="two"   onclick="addCar()">加入购物车</div>
+	        	<div class="three"  onclick="addCar()"">立即购买</div>
+	        </div>
+        </div>
+        <!-- 弹窗 -->
+        <div id="carBox">
+		   
+		</div>
+	    <div class="share">
+	    	<a href="javascript:;">
+		    	<div class="wing">
+		    		<span class="rol"><img src="../images/wing.png"></span>
+		    		<span>分享赚钱</span>
+		    	</div>
+		   	</a>
+	    </div>
+	    <!-- 侧导航 -->
+	    <!-- <div class="bg bgColors" v-show="bar"></div>    
+		<div class="bar">
+		    <div class="list" v-show="bar">
+		        <a href="index.html">
+		        	<div class="li">
+			            <img src="../images/shouye.png" >
+			        </div>
+		        </a>
+		        <span class="text wenzi">首页</span>
+		        <a href="car.html">
+			        <div class="li">
+			            <img src="../images/gouwu.png">
+			        </div>
+			    </a>
+		        <span class="text wenzi">购物车</span>
+		    </div>
+		    <div style="width:40px;height: 40px;" class="daohang bgdaohang" v-if="bar" @click="navClose()">
+		    	<img style="width:40px" src="../images/close.png">
+		    </div>9()
+		    <div class="kuaijie daohang daohangw"  @click="nav()" v-else>快捷导航</div>
+		    <div class="kuaijie daohang daohangw" v-show="floorstatus" @click="backtop()" >回到顶部</div>
+		</div> -->
+		<!-- share -->
+		<div class="shareBox">
+			<h1>分享达人</h1>
+			<div class="content one">
+				<p style="margin-top: -20px;">1.转发商品和生成海报有何不同？转发商品是直接分享该页面，生成海报是复制该商品内容可直接发送朋友圈动态。</p>
+				<p>2.好友通过你的分享而购买商品，你会获得该商品单价的20%提成佣金，并且好友再分享给好友，产生购买交易，你也会间接获得佣金提成</p>
+				<p>3.花钱的同时分享出去悄悄赚钱！！！</p>
+			</div>
+			<div class="content two">
+				<div class="zf">
+					<span><img src="../images/weixin.png"></span>
+					<span class="btn zhuangfa">转发商品</span>
+				</div>
+				<div class="zf" id="haibao">
+					<span><img src="../images/erma.png"></span>
+					<span class="btn">生成海报</span>
+				</div>
+			</div>
+			<div class="foot">
+				别人花钱，我们挣钱
+			</div>
+			<!-- 转发 -->
+			<div class="bodybg">
+				<div class="shareImg">
+					<div class="cursor">
+						<img src="../images/cursor.png">
+						<p>点击 发送给朋友</p>
+						<p> 进行分享</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 海报 -->
+		<div class="haibao" id="demo">
+			<div class="niceImg">
+				<img src="../images/1.jpg">
+			</div>
+			<div class="niceText">
+				<div class="left">
+					<p><a href="inform.html">商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</a></p>
+					<h3>RMB 33</h3>
+					<p>长按二维码查看详情</p>
+				</div>
+				<div class="right">
+					<img src="../images/demo.png">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="../js/jquery-weui.js"></script>
+	<script type="text/javascript" src="../js/swiper.js"></script><!-- 轮播 -->
+	<script type="text/javascript" src="../js/vue.min.js"></script>
+	<script type="text/javascript" src="../js/html2canvas.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/inform.js"></script>
+	<script type="text/javascript">
+	document.createElement("canvas").toDataURL()
+		
+		$(".swiper-container").swiper({
+	        loop: true,
+	        autoplay: 3000
+	     });
+		$(".share").click(function(){
+			$(".shareBox").show();
+		})
+		$(".zhuangfa").click(function(){
+    		console.log(22);
+    		$(".shareImg,.bodybg").show();
+    	})
+    	$(".bodybg").click(function() {
+    		$(".shareImg,.bodybg").hide();
+    	});
+    	$(".weui-gallery").click(function() {
+    		$(".weui-gallery").hide();
+    	});
+    	$("#haibao").on("click",function() {
+    		window.location.href="share.html";
+    	});
+    	// 合成图片
+    	$("#haibao").on("click", function() {  
+    			$(".haibao").show();
+    			setTimeout(function(){
+    				// event.preventDefault();  
+                    html2canvas(document.body, {  
+	                    allowTaint: true,  
+	                    taintTest: false,  
+	                    onrendered: function(canvas) {  
+	                        canvas.id = "mycanvas";  
+	                        //document.body.appendChild(canvas);  
+	                        //生成base64图片数据  
+	                        var dataUrl = canvas.toDataURL();  
+	                        var newImg = document.createElement("img");  
+	                        //newImg.id=newimg;
+	                        newImg.src =  dataUrl;  
+	                        console.log(newImg);
+	                        $("#newsimg").html(newImg);
+	                        $("#demo").hide();
+	                        //document.body.appendChild(newImg);  
+	                    } 
+    				})
+            },1000);  
+        }); 
+	</script>
+</body>
+</html>

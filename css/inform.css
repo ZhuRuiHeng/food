@@ -1,0 +1,319 @@
+#app{
+	overflow: hidden;
+}
+.bgColor{background: #EFEFF4!important;}
+.weui-cell,.weui-cells,.weui-cell.weui-cell_access{
+	background: #fff;
+}
+.weui-cell__bd.weui-media-box__desc{
+	color:#000;
+}
+.marginAdd{
+	margin-bottom:8px;
+}
+.weui-cell.afterNone:before{
+	content: none;
+}
+.weui-cell__bd .red{
+	color:#ff4444;
+}
+.swiper-slide img,.allImg img{
+	width: 100%;
+}
+.allImg{
+	margin-bottom: 50px;
+}
+.carBox{
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    z-index: 1111;
+}
+.carBox .flex{
+	display: flex;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 13px;
+	color: #333;
+}
+.carBox .flex>div{
+	flex:1;
+}
+.carBox .flex .one .oneList{
+	width: 100%;
+}
+.carBox .flex .one .oneList a{
+	display: block;
+}
+.carBox .flex .one .oneList div{
+	display: inline-block;
+	width: 48%;
+}
+.carBox .flex .one .oneList span{
+	display: block;
+}
+.carBox .flex .one .oneList img{
+	width: 20px;
+}
+.carBox .flex .two,.carBox .flex .three{
+	height: 45px;
+	line-height: 45px;
+}
+.carBox .flex .two{
+	background:#ff8855;
+	color:#fff;
+}
+.carBox .flex .three{
+	background:#ff4444;
+	color:#fff;
+}
+/*弹窗*/
+.carBox .top{
+    display: flex;
+}
+.carBox .padding{
+    width: 90%;
+    margin: 0 auto
+}
+.carBox .top .left{
+    width: 70px;
+    height: 70px;
+}
+.carBox .top .left img{
+	width: 100%;
+}
+.carBox .top .left img{
+   border-radius: 5px;
+   border:1px solid #fff;
+   position: relative;
+   top:-10px;
+}
+.carBox .top .left img{
+   width:70px;
+   height: 70px;
+}
+.carBox .top .del img{
+    width: 100%;
+    height:100%;
+}
+.carBox .top .right{
+    flex: 1;
+    padding:10px 0 0 0;
+}
+.carBox .top .right span,.carBox .mid .buy span{
+    display: block;
+    font-weight: normal;
+    font-size:12px;
+    line-height:20px;
+}
+.carBox .top .del{
+    width: 20px;
+    height: 20px; 
+    padding: 10px;  
+    cursor: pointer;
+}
+.carBox .top .right{
+    display:block;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;width: 100%;
+    padding-left:10px;
+}
+.carBox .top .right span.price{
+    color:#ff4444;
+    padding-top:5px;
+}
+.carBox .top .right span.price span{
+	display: inline-block;
+}
+.carBox .top .shuoming{
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.carBox .mid{
+    display: flex;
+    justify-content:space-between;
+    padding: 10px 0;
+    position: relative;
+}
+.carBox .mid:after{
+    content:" ";
+    display: inline-block;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    border:1px solid #e5e5e5;
+    -webkit-transform:scaleY(0.5);
+    transform:scaleY(0.5);
+    -webkit-transform-origin:0 0;
+    transform-origin:0 0;
+    box-sizing:border-box;
+}
+.carBox .mid .num{
+    display: flex;
+    position:relative;
+    top:5px;
+}
+.carBox .mid .num button,.carBox .mid .num input{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    padding:0;
+    text-align: center;
+}
+.carBox .mid .num input{
+    font-size: 12px;
+    border:1px solid #e5e5e5;
+    border-left: 0;
+    border-right:0;
+    box-sizing: border-box;
+    position: relative;
+    top: 0px;
+}
+.carBox .mid button{
+    border-radius:none;
+    font-size: 12px;
+    border:1px solid #e5e5e5; 
+}
+.carBox button::after{
+    content:none;
+}
+ .carBox .mid button.reduce{
+    border-radius: 4px 0 0 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.carBox .mid button.add{
+    border-radius: 0 4px 4px 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+} 
+.normal{ 
+   color: black; 
+} 
+.disabled{ 
+   color: #ccc; 
+} 
+.carBox .mid .gray{
+   color:#949292;
+}
+.btn{
+    display: flex;
+    width: 110%;
+    position: relative;
+    left: -5%;
+}
+.btn button{
+    flex: 1;
+    width:100%;
+    font-size:15px;
+    padding:12px 0;
+    background-color:#F8F8F8;
+}
+.btn .addcar{
+    background: #ff8855;
+    color:#fff;
+    border-radius: 0;
+}
+.btn .buy{
+    background: #ff4444;
+    color:#fff;
+    border-radius: 0;
+}
+.nextUrl{
+    width: 100%;
+}
+.kuanshi .title{
+    font-size: 14px;
+    padding: 4px 0;
+}
+.kuanshi .leibie{
+    margin:0 0 10px 0;
+}
+.kuanshi .leibie .text{
+    display: inline-block;
+    font-size: 12px;
+    border:1px solid #e5e5e5; 
+    border-radius: 3px;
+    padding: 5px 10px; 
+    box-sizing: border-box;
+    margin-right:5px;
+    position: relative;
+}
+.kuanshi .leibie .text.white{
+    background: #fff;
+    color:#000;
+}
+.kuanshi .leibie .text.red{
+    background: #ff4444;
+    border-color:#ff4444;
+    color:#fff;
+}
+.all{
+    font-size:13px;
+    text-align: center;
+    padding:10px;
+    background: #fff;
+    margin: 8px 0 50px 0;
+    color:#666666;
+}
+.modeList{
+    background: #fff;
+    width:100%;
+}
+.chakan{
+   width: 100%;
+} 
+.share{
+    position: fixed;
+    top:50%;
+    right:-20px;
+    transform:translate(-50%,-50%);
+    z-index: 99;
+}
+.share .wing{
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: #25db9d;
+    color:#fff;
+    border-radius: 5px;
+    padding: 5px 0 0 0;
+}
+.share .wing .rol{
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: block;
+    margin: 0 auto;
+}
+.share .wing img{
+    width: 36px;
+    vertical-align: middle;
+}
+.share .wing span{
+    display: block;
+    font-size: 12px;
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: center;
+}
+.marginNone{
+    margin-top: 0;
+}
+.total_stock{
+    display: inline-block!important;
+}
+#carBox{
+    display: none;
+}
+#newsimg{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: inherit;
+    z-index: 999999;
+}

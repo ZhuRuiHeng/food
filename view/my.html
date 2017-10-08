@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="明星美食街" />
+    <meta name="description" content="明星美食街" />
+    <title>我的</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery-weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/my.css">
+  <body ontouchstart>
+      <div id="app">
+          <div class="mine">
+              <div class="userinfo">
+                  <div class="user_circle2"><img src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjNvnBqkvMeR1cMYlhbia2bn2lzgLQDQJXwLSPxfEVx7JTRa3LBKoD1fn4NMrjaJiaMk0mIkcdPkvA/0"></div>
+                  <p class="userinfo-nickname">昵称<span class="daren">分享达人</span></p>
+              </div>
+          </div>
+          <div class="xuanze">
+              <div class="weui-cells">
+                  <a class="weui-cell weui-cell_access" href="dingdan.html?status=">
+                      <div class="weui-cell__bd">
+                          <p>我的订单</p>
+                      </div>
+                      <div class="weui-cell__ft">查看全部订单</div>
+                  </a>
+              </div>
+          </div>
+          <div class="listAll">
+              <div class="list">
+                  <a href="dingdan.html?status=payment" class="flex">
+                    <div>
+                      <span class="num num1">1</span>
+                      <img src="https://qncdn.playonwechat.com/shangcheng/fu.png" class="image"> 
+                      <span>待付款</span>
+                    </div>
+                  </a>
+                  <a href="dingdan.html?status=deliver" class="flex">
+                    <div>
+                      <span class="num num2">2</span>
+                      <img src="https://qncdn.playonwechat.com/shangcheng/fa.png" class="image"> 
+                      <span>待发货</span>
+                    </div>
+                  </a>
+                  <a href="dingdan.html?status=receipt" class="flex">
+                    <div>
+                      <span class="num num3">3</span>
+                      <img src="https://qncdn.playonwechat.com/shangcheng/shou.png" class="image"> 
+                        <span>待收款</span>
+                    </div>
+                  </a>
+                  <a href="dingdan.html?status=finish" class="flex">
+                    <div>
+                      <span class="num num4">4</span>
+                      <img src="https://qncdn.playonwechat.com/shangcheng/finish.png" class="image"> 
+                      <span>已完成</span>
+                    </div>
+                  </a>
+              </div>
+          </div>
+          <!-- liebiao -->
+          <!-- <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__hd">
+                        <img src="../images/ka.png" alt="" style="width:20px;margin-right:5px;display:block">
+                    </div>
+                    <div class="weui-cell__bd">
+                        <p>优惠卡卷</p>
+                    </div>
+                    <div class="weui-cell__ft"></div>
+                </a>
+          </div> -->
+          <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" href="invitation.html">
+                  <div class="weui-cell__hd">
+                      <img src="../images/jiang.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>会员中心</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+          <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" href="shoucang.html">
+                  <div class="weui-cell__hd">
+                      <img src="../images/like.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>我的收藏</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+          <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" href="tel:6666888">
+                  <div class="weui-cell__hd">
+                      <img src="../images/kefu.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>联系客服</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+          <!-- bar -->
+          <div class="weui-tabbar">
+              <a href="index.html" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                  <img src="../images/shouye.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">首页</p>
+              </a>
+              <a href="car.html" class="weui-tabbar__item">
+                <div class="weui-tabbar__icon">
+                  <img src="../images/gouwu.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">购物车</p>
+              </a>
+              <a href="my.html" class="weui-tabbar__item weui-bar__item--on">
+                <div class="weui-tabbar__icon">
+                  <img src="../images/wodeb.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">我的</p>
+              </a>
+          </div>
+      </div>
+      <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+      <script type="text/javascript" src="../js/jquery-weui.js"></script>
+      <script type="text/javascript" src="../js/vue.min.js"></script>
+      <script type="text/javascript" src="../js/public.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+.weui-cell__bd p span.phone{
+	display: inline-block;
+    float: right;
+}
+.weui-cell__bd p.dizhi{
+	font-size:10px;
+	color:#626262;
+}
+.line{
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: url(https://qncdn.playonwechat.com/shangcheng/line.png) no-repeat;
+	background-size: cover;
+}
+.leixings{
+	font-size: 10px;
+	color:#626262;
+	padding: 10px 0 0 0;
+}
+.weui-cell.caozuo{
+	margin:0;
+}
+.weui-cell.shop{
+	background: #fff;
+	padding: 6px 15px;
+}
+.weui-cell.shop .weui-cell__bd p{
+	font-size: 12px;
+}
+.weui-cell.write,.weui-cell.sum{
+	background: #fff;
+	font-size: 12px;
+}
+.weui-cell.sum{
+	padding: 4px 15px;
+}
+.weui-cell.sum.beforeNone:before{
+	content: none;
+}
+.weui-cell.write .liuyan input{
+	padding:0 0 0 10px;
+	min-width: 238px;
+}
+.weui-cell.sum .weui-cell__ft.red{
+	color:#ff4444;
+}
+.weui-cell__ft{
+	color:#000;
+}
+.flex{
+	display: block;
+	width: 100%;
+	display: flex;
+	font-size: 10px;
+	text-align: center;
+	height: 38px;
+	line-height: 38px;
+	position: fixed;
+	bottom:0;
+	left:0;
+}
+.flex p{
+	flex:1;
+}
+.flex p span.red{
+	color:#ff4444;
+}
+.flex p.submit{
+	font-size: 12px;
+	background:#ff4444;
+	color:#fff;
+}

@@ -1,0 +1,38 @@
+.member{
+	font-size:10px;
+	color:#ff4444;
+}
+.member span img{
+	width:20px;
+	vertical-align:middle;
+	border-radius:50%;
+	margin-top:0;
+	margin-right:-5px;
+	background:#fff;
+}
+.member i.red{
+	line-height:26px;
+	display:inline-block;
+	height:26px;
+	padding-left:5px;
+}
+.weui-cell.caozuo{
+	margin-top: 2px;
+}
+.weui-cell.caozuo .gary{
+	text-decoration:line-through;
+	color:#626262;
+	padding-left:5px;
+	font-size:10px;
+}
+.openGroup{
+	font-size:12px;
+	background:-webkit-linear-gradient(left, #FD8563 , #F96070);
+	background:-o-linear-gradient(right, #FD8563 , #F96070);
+	background:-moz-linear-gradient(right, #FD8563 , #F96070);
+	background:linear-gradient(to right, #FD8563 , #F96070);
+	color:#fff;
+	padding:6px 10px;
+	border-radius:5px;
+
+}

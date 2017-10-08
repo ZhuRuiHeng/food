@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+    <meta name="keywords" content="明星美食街" />
+    <meta name="description" content="明星美食街" />
+    <title>订单</title>
+  </head>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
+  <link rel="stylesheet" type="text/css" href="../css/jquery-weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/weui.css">
+  <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <link rel="stylesheet" type="text/css" href="../css/dingdan.css">
+  <body ontouchstart>
+      <div id="app">
+          <!-- nav -->
+          <div class="find_nav">
+              <div class="find_nav_left">
+                  <div class="find_nav_list">
+                      <ul>
+                          <li class="find_nav_cur" id=""><a href="javascript:void(0)">全部</a></li>
+                          <li id="payment"><a href="javascript:void(0)">待付款</a></li>
+                          <li id="deliver"><a href="javascript:void(0)">待发货</a></li>
+                          <li id="receipt"><a href="javascript:void(0)">待收货</a></li>
+                          <li id="finish"><a href="javascript:void(0)">已完成</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- list -->
+          <div class="noOrder">暂时没有订单哦！</div>
+          <div id="dingdan">
+            
+          </div>
+          <!-- <div class="weui-panel weui-panel_access">
+              <div class="weui-cells marginNone write">
+                  <a href="javascript:;" class="weui-cell weui-cell_access shopTitle">
+                    <div class="weui-cell__bd">
+                      <p>
+                        店铺：张三
+                        <span class="red">
+                          交易关闭
+                        </span>
+                      </p>
+                      <p class="bianhao">
+                        订单编号：E0012017092813561817653
+                      </p>
+                    </div>
+                  </a>
+              </div>
+              <div class="weui-panel__bd addBefore">
+                  <a href="javascript:;" class="weui-media-box weui-media-box_appmsg">
+                      <div class="weui-media-box__hd">
+                        <img src="https://shop.playonwechat.com/assets/images/goods/201709/TB2Imq3XnZKL1JjSZFIXXX_DFXa_!!1747771701.jpg"
+                        class="weui-media-box__thumb">
+                      </div>
+                      <div class="weui-media-box__bd">
+                          <div class="spTtle">
+                              <p class="left"><span class="coubg">秒杀</span>额问题GV产业独大</p>
+                              <p class="right">￥56</p>
+                          </div>
+                          <div class="spNum">
+                              <p class="left">M 男款</p>
+                              <p class="right">x1</p>
+                          </div>
+                      </div>
+                  </a>
+              </div>
+              <div class="weui-cell cell-padding">
+                  <div class="weui-cell__bd">
+                    <p></p>
+                  </div>
+                  <div class="weui-cell__ft heji">合计：<span class="red">￥11</span></div>
+              </div>
+              <div class="weui-cell cell-padding beforeNone">
+                  <div class="weui-cell__bd">
+                    <p></p>
+                  </div>
+                  <div class="weui-cell__ft">
+                      <span class="button">拼团详情</span>
+                      <span class="button active">确认付款</span>
+                      <span class="button active">拼团中</span>
+                      <span class="button" id="show-confirm">确认收货</span> 
+                  </div>
+              </div>
+          </div> -->
+      </div>
+      <!-- 取消订单弹窗 -->
+      <div id="tanchuang" style="display: none">
+          <div class="weui-mask weui-mask--visible"></div>
+          <div class="weui-dialog weui-dialog--visible">
+            <div class="weui-dialog__hd">
+              <strong class="weui-dialog__title">
+                提示
+              </strong>
+            </div>
+            <div class="weui-dialog__bd">
+             请您收到货后点击“确认收货”，否则钱货两空！
+            </div>
+            <div class="weui-dialog__ft">
+              <a href="javascript:;" class="weui-dialog__btn default" name="1">
+                取消
+              </a>
+              <a href="javascript:;" class="weui-dialog__btn primary" name="2">
+                确定
+              </a>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+      <script type="text/javascript" src="../js/jquery-weui.js"></script>
+      <script type="text/javascript" src="../js/vue.min.js"></script>
+      <script type="text/javascript" src="../js/public.js"></script>
+      <script type="text/javascript" src="../js/dingdan.js"></script>
+  </body>
+</html>
