@@ -21,54 +21,14 @@
 <body>
 	<div id="app">
 		<div id="newsimg"></div>
-		<!-- <h1>分享达人</h1>
-		<div class="content one">
-			<p style="margin-top: -20px;">1.转发商品和生成海报有何不同？转发商品是直接分享该页面，生成海报是复制该商品内容可直接发送朋友圈动态。</p>
-			<p>2.好友通过你的分享而购买商品，你会获得该商品单价的20%提成佣金，并且好友再分享给好友，产生购买交易，你也会间接获得佣金提成</p>
-			<p>3.花钱的同时分享出去悄悄赚钱！！！</p>
-		</div>
-		<div class="content two">
-			<div class="zf">
-				<span><img src="../images/weixin.png"></span>
-				<span class="btn zhuangfa">转发商品</span>
-			</div>
-			<div class="zf">
-				<span><img src="../images/erma.png"></span>
-				<span class="btn haibao">生成海报</span>
-			</div>
-		</div>
-		<div class="foot">
-			别人花钱，我们挣钱
-		</div>
-		<!-- 转发 -->
-
-		<!-- <div class="bodybg">
-			<div class="shareImg">
-				<div class="cursor">
-					<img src="../images/cursor.png">
-					<p>点击 发送给朋友</p>
-					<p> 进行分享</p>
-				</div>
-			</div>
-		</div> -->
-		<!-- 海报 -->
-		<!-- <div class="weui-gallery" style="display: none">
-		  <span class="weui-gallery__img" style="background-image: url(../images/ewm.png);"></span>
-		  <div class="weui-gallery__opr">
-			    <a href="javascript:" class="weui-gallery__del">
-			     <i class="weui-icon-delete weui-icon_gallery-delete"></i>
-		    </a>
-		  </div>
-		</div> -->
-		<!-- 海报 -->
-		<div class="haibao" id="demo" style="display:block">
+		<div class="haibao" id="demo">
 			<div class="niceImg">
-				<img src="../images/1.jpg">
+				<img class="poster" src="../images/1.jpg">
 			</div>
 			<div class="niceText">
 				<div class="left">
-					<p><a href="inform.html">商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</a></p>
-					<h3>RMB 33</h3>
+					<p><a href="javascript:;" class="good_name"></a></p>
+					<h3>RMB <span class="low_price">22</span></h3>
 					<p>长按二维码查看详情</p>
 				</div>
 				<div class="right">
@@ -83,45 +43,55 @@
     <script type="text/javascript" src="../js/vue.min.js"></script>
     <script type="text/javascript" src="../js/html2canvas.js"></script>
     <script type="text/javascript">
-    	// $(".zhuangfa").click(function(){
-    	// 	console.log(22);
-    	// 	$(".shareImg,.bodybg").show();
-    	// })
-    	// $(".bodybg").click(function() {
-    	// 	$(".shareImg,.bodybg").hide();
-    	// });
-    	// $(".haibao").click(function() {
-    	// 	$(".weui-gallery").show();
-    	// });
-    	// $(".weui-gallery").click(function() {
-    	// 	$(".weui-gallery").hide();
-    	// });
+    	
+		
     	$(document).ready(function() {
-    		$.showLoading();
-    			setTimeout(function(){
-    				// event.preventDefault();  
-                    html2canvas(document.body, {  
-	                    allowTaint: true,  
-	                    taintTest: false,  
-	                    onrendered: function(canvas) {  
-	                        canvas.id = "mycanvas";  
-	                        //document.body.appendChild(canvas);  
-	                        //生成base64图片数据  
-	                        var dataUrl = canvas.toDataURL();  
-	                        //console.log(dataUrl);
-	                        var newImg = document.createElement("img");  
-	                        newImg.src =  dataUrl;  
-	                        //console.log(newImg);
-	                        $("#newsimg").html(newImg);
-	                        $(".foot,content.two").hide();
-	                        $("body").css("background","#000");
-	                        //document.body.appendChild(newImg);  
-	                    } 
-    				})
-    				$.hideLoading();
-    				$.toast("操作成功");
-            },1000);  
-        })
+    		var getParam = function () {
+			    try{
+			    var url = window.location.href;
+			    var result = url.split("?")[1];
+			    var keyValue = result.split("&");
+			    var obj = {};
+			    for (var i = 0; i < keyValue.length; i++) {
+			        var item = keyValue[i].split("=");
+			        obj[item[0]] = item[1];
+			    }
+			    return obj;}catch(e){
+			        console.warn("没有参数");
+			    }
+			};
+    		//接收传参赋值
+			$(".good_name").text(decodeURI(getParam().good_name));
+			$(".low_price").text(getParam().low_price);
+			// $(".poster").attr("src", ""+getParam().poster+"");
+			// $(".poster").crossOrigin="anonymous";
+    	});
+
+    	$.showLoading();
+    	document.createElement("canvas").toDataURL(); //引用外部图片跨域设置img.crossOrigin="anonymous"; //关键
+		setTimeout(function(){  
+			html2canvas(document.body, {  
+                allowTaint: true,  
+                taintTest: false,  
+                onrendered: function(canvas) {  
+                    canvas.id = "mycanvas";  
+                    //document.body.appendChild(canvas);  
+                    //生成base64图片数据  
+                    var dataUrl = canvas.toDataURL();  
+                    //console.log(dataUrl);
+                    var newImg = document.createElement("img");  
+                    newImg.crossOrigin="anonymous"; //关键
+                    newImg.src =  dataUrl;  
+                    console.log(newImg);
+                    $("#newsimg").html(newImg);
+                    $(".foot,content.two,#demo").hide();
+                    $("body").css("background","#000");
+                    //document.body.appendChild(newImg);  
+                } 
+			})
+			$.hideLoading();
+			$.toast("操作成功");
+        },1000);  
     </script>
 </body>
 </html>

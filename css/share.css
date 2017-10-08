@@ -24,6 +24,7 @@ h1{
 }
 .content.two .zf{
 	flex:1;
+	cursor: pointer;
 }
 .content.two .zf span{
 	display: block;
@@ -84,7 +85,6 @@ h1{
 	width: 100%;
 	height: 100%;
 	background: #000;
-	display: none;
 }
 .haibao .niceImg img{
 	width: 100%;

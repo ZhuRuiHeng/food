@@ -19,6 +19,12 @@
   <link rel="stylesheet" type="text/css" href="../css/weui.css">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" type="text/css" href="../css/dingdan.css">
+  <style type="text/css">
+    body, html {
+        height: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+  </style>
   <body ontouchstart>
       <div id="app">
           <!-- nav -->
@@ -39,6 +45,10 @@
           <div class="noOrder">暂时没有订单哦！</div>
           <div id="dingdan">
             
+          </div>
+          <div class="weui-loadmore" id="loadMsg" style="display: none">
+              <i class="weui-loading"></i>
+              <span class="weui-loadmore__tips">正在加载</span>
           </div>
           <!-- <div class="weui-panel weui-panel_access">
               <div class="weui-cells marginNone write">
@@ -120,5 +130,11 @@
       <script type="text/javascript" src="../js/vue.min.js"></script>
       <script type="text/javascript" src="../js/public.js"></script>
       <script type="text/javascript" src="../js/dingdan.js"></script>
+      <script type="text/javascript" src="../js/fastclick.js"></script>
+      <script type="text/javascript">
+        $(function() {
+           FastClick.attach(document.body);
+        });
+      </script>
   </body>
 </html>

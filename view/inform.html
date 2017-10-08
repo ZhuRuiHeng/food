@@ -146,9 +146,9 @@
 				<p>3.花钱的同时分享出去悄悄赚钱！！！</p>
 			</div>
 			<div class="content two">
-				<div class="zf">
+				<div class="zf zhuangfa">
 					<span><img src="../images/weixin.png"></span>
-					<span class="btn zhuangfa">转发商品</span>
+					<span class="btn">转发商品</span>
 				</div>
 				<div class="zf" id="haibao">
 					<span><img src="../images/erma.png"></span>
@@ -170,21 +170,21 @@
 			</div>
 		</div>
 		<!-- 海报 -->
-		<div class="haibao" id="demo">
+		<!-- <div class="haibao" id="demo">
 			<div class="niceImg">
 				<img src="../images/1.jpg">
 			</div>
 			<div class="niceText">
 				<div class="left">
-					<p><a href="inform.html">商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</a></p>
-					<h3>RMB 33</h3>
+					<p><a href="javascript:;" class="good_name">商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情商品详情</a></p>
+					<h3>RMB <span class="low_price">33</span></h3>
 					<p>长按二维码查看详情</p>
 				</div>
 				<div class="right">
 					<img src="../images/demo.png">
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
@@ -194,53 +194,5 @@
 	<script type="text/javascript" src="../js/html2canvas.js"></script>
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/inform.js"></script>
-	<script type="text/javascript">
-	document.createElement("canvas").toDataURL()
-		
-		$(".swiper-container").swiper({
-	        loop: true,
-	        autoplay: 3000
-	     });
-		$(".share").click(function(){
-			$(".shareBox").show();
-		})
-		$(".zhuangfa").click(function(){
-    		console.log(22);
-    		$(".shareImg,.bodybg").show();
-    	})
-    	$(".bodybg").click(function() {
-    		$(".shareImg,.bodybg").hide();
-    	});
-    	$(".weui-gallery").click(function() {
-    		$(".weui-gallery").hide();
-    	});
-    	$("#haibao").on("click",function() {
-    		window.location.href="share.html";
-    	});
-    	// 合成图片
-    	$("#haibao").on("click", function() {  
-    			$(".haibao").show();
-    			setTimeout(function(){
-    				// event.preventDefault();  
-                    html2canvas(document.body, {  
-	                    allowTaint: true,  
-	                    taintTest: false,  
-	                    onrendered: function(canvas) {  
-	                        canvas.id = "mycanvas";  
-	                        //document.body.appendChild(canvas);  
-	                        //生成base64图片数据  
-	                        var dataUrl = canvas.toDataURL();  
-	                        var newImg = document.createElement("img");  
-	                        //newImg.id=newimg;
-	                        newImg.src =  dataUrl;  
-	                        console.log(newImg);
-	                        $("#newsimg").html(newImg);
-	                        $("#demo").hide();
-	                        //document.body.appendChild(newImg);  
-	                    } 
-    				})
-            },1000);  
-        }); 
-	</script>
 </body>
 </html>

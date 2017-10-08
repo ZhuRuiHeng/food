@@ -197,7 +197,7 @@
 .carBox .mid .gray{
    color:#949292;
 }
-.btn{
+.carBox .btn{
     display: flex;
     width: 110%;
     position: relative;

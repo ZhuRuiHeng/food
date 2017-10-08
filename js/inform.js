@@ -1,5 +1,7 @@
 
-
+var good_name = '';
+var low_price = "";
+var poster    = "";
 var getParam = function () {
     try{
     var url = window.location.href;
@@ -15,6 +17,28 @@ var getParam = function () {
     }
 };
 var gid = getParam().gid;
+
+$(".swiper-container").swiper({
+      loop: true,
+      autoplay: 3000
+});
+$(".share").click(function(){
+  $(".shareBox").show();
+})
+$(".zhuangfa").click(function(){
+    console.log(22);
+    $(".shareImg,.bodybg").show();
+})
+$(".bodybg").click(function() {
+   $(".shareImg,.bodybg").hide();
+});
+$(".weui-gallery").click(function() {
+   $(".weui-gallery").hide();
+});
+$("#haibao").on("click",function() {
+   window.location.href="share.html?good_name="+good_name+"&low_price="+low_price+"&poster="+poster+"";
+});
+
 // 加减
 function bindMinus () {
     var num = $("input.num").val();
@@ -77,6 +101,10 @@ $(document).on("click",".del",function(){//修改成这样的写法
                 $(".low_price").html(data.data.goodsDetail.low_price);
                 $("#sales_volume").html(data.data.goodsDetail.sales_volume);
                 $(".total_stock").html(data.data.goodsDetail.total_stock);
+                //赋值海报值
+                good_name = data.data.goodsDetail.good_name;
+                low_price = data.data.goodsDetail.low_price;
+                poster    = data.data.goodsDetail.picture[0];
                 // 轮播
                 var picture = data.data.goodsDetail.picture; 
                 if(picture.length != 0){
@@ -345,3 +373,32 @@ function like(){
         }
     });
 }
+
+
+    
+   
+      // 合成图片
+      //document.createElement("canvas").toDataURL();
+      // $("#haibao").on("click", function() {  
+      //     $(".haibao").show();
+      //     setTimeout(function(){
+      //       // event.preventDefault();  
+      //               html2canvas(document.body, {  
+      //                 allowTaint: true,  
+      //                 taintTest: false,  
+      //                 onrendered: function(canvas) {  
+      //                     canvas.id = "mycanvas";  
+      //                     //document.body.appendChild(canvas);  
+      //                     //生成base64图片数据  
+      //                     var dataUrl = canvas.toDataURL();  
+      //                     var newImg = document.createElement("img");  
+      //                     //newImg.id=newimg;
+      //                     newImg.src =  dataUrl;  
+      //                     console.log(newImg);
+      //                     $("#newsimg").html(newImg);
+      //                     $("#demo").hide();
+      //                     //document.body.appendChild(newImg);  
+      //                 } 
+      //       })
+      //       },1000);  
+      //   }); 
