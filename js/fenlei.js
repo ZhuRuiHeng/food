@@ -77,7 +77,7 @@ $(document).ready(function(){
                                                           "<div class=\"padding\">"+
                                                             "<div class=\"top\">"+
                                                                 "<div class=\"left\">"+
-                                                                  "<image src=\" "+goodsList.picture[0]+" \"></image>"+
+                                                                  "<image src=\" "+goodsList.picture+" \"></image>"+
                                                                 "</div>"+
                                                                 "<div class=\"right\">"+
                                                                     "<span class=\"shuoming\">"+goodsList.good_name+"</span>"+
@@ -156,7 +156,7 @@ $(document).ready(function(){
                                                           "<div class=\"padding\">"+
                                                             "<div class=\"top\">"+
                                                                 "<div class=\"left\">"+
-                                                                  "<image src=\" "+goodsList.picture[0]+" \"></image>"+
+                                                                  "<image src=\" "+goodsList.picture+" \"></image>"+
                                                                 "</div>"+
                                                                 "<div class=\"right\">"+
                                                                     "<span class=\"shuoming\">"+goodsList.good_name+"</span>"+

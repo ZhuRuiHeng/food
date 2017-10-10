@@ -33,6 +33,7 @@
 				</div>
 				<div class="right">
 					<img src="../images/demo.png">
+					<p style="text-align: center">过期时间</p>
 				</div>
 			</div>
 		</div>
@@ -42,9 +43,8 @@
     <script type="text/javascript" src="../js/fastclick.js"></script>
     <script type="text/javascript" src="../js/vue.min.js"></script>
     <script type="text/javascript" src="../js/html2canvas.js"></script>
+    <script type="text/javascript" src="../js/vconsole.min.js"></script> 
     <script type="text/javascript">
-    	
-		
     	$(document).ready(function() {
     		var getParam = function () {
 			    try{
@@ -91,7 +91,7 @@
 			})
 			$.hideLoading();
 			$.toast("操作成功");
-        },1000);  
+        },300);  
     </script>
 </body>
 </html>

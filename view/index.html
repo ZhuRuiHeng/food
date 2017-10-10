@@ -18,11 +18,12 @@
   <link rel="stylesheet" type="text/css" href="../css/jquery-weui.css">
   <link rel="stylesheet" type="text/css" href="../css/weui.css">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
+  <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
 </head>
 <body ontouchstart> 
     <div id="app">
         <!-- 搜索 -->
-        <div class="weui-search-bar" id="searchBar" @click="search">
+        <div class="weui-search-bar" id="searchBar">
           <form class="weui-search-bar__form">
             <div class="weui-search-bar__box">
               <i class="weui-icon-search"></i>
@@ -36,19 +37,13 @@
           </form>
           <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
         </div>
-        <!-- swiper -->
-    		<div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
-    			  <div class="swiper-wrapper" id="swiper">
-    			     <span class="swiper-pagination-bullet swiper-pagination-bullet-active" id="first"></span>
-    			  </div>
-    			  <!-- If we need pagination -->
-    	      <div class="swiper-pagination swiper-pagination-bullets" id="pagination">
-                <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-                <span class="swiper-pagination-bullet"></span>
-                <span class="swiper-pagination-bullet"></span>
+        <!-- 轮播图 -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="swiper">
             </div>
-    		</div>
-        <!-- type -->
+            <div class="swiper-pagination"></div><!-- 小圆点分页器 -->
+        </div>
+        <!-- 分类 -->
         <div class="type" id="categorys">
             
         </div>
@@ -218,12 +213,24 @@
 })
   </script> -->
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="../js/jquery-weui.js"></script>
   <script type="text/javascript" src="../js/fastclick.js"></script>
   <script type="text/javascript" src="../js/swiper.js"></script><!-- 轮播 -->
   <script type="text/javascript" src="../js/vue.min.js"></script>
   <script type="text/javascript" src="../js/public.js"></script>
   <script type="text/javascript" src="../js/index.js"></script>
-    <script type="text/javascript" src="../js/vconsole.min.js"></script> <!-- 调试工具 -->
+  <script type="text/javascript" src="../js/vconsole.min.js"></script> 
+  <!-- 轮播图 插件-->
+  <script src="../js/swiper.min.js"></script>
+  <script>
+    var mySwiper = new Swiper('.swiper-container',{ 
+        autoplay : 3000,//自动运行 
+        direction: 'horizontal',//水平方向 
+        loop : true,//可以循环点击 
+        pagination : '.swiper-pagination',//点 
+        paginationClickable: true,
+    }); 
+  </script>
 </body>
 </html>

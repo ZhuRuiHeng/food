@@ -4,12 +4,24 @@
  var _attr = ""; 
  var _priceGroup ="";
  var low_price = "";
+ var _low_price = "";//传下页面
  var high_price = "";
  var html='';
+ var _picture   = "";//商品小图
+ var _priceGroup = "";//价格表
+ var _attr = ""; //在价格表里查找
+ var _attr1 = "";
+ var nowPrice  = "";
+ var types     = "";//型号
 $(".swiper-container").swiper({
     loop: true,
     autoplay: 3000
   });
+ //跳转详情
+function url(obj,gid){
+  console.log(2);
+     window.location.href="inform.html?gid="+gid;
+}
 $("#searchBar").click(function(){
     window.location.href="searchbar.html";
 });
@@ -20,9 +32,15 @@ $(document).on("click",".del",function(){//修改成这样的写法
 function bindMinus () {
     var num = $("input.num").val();
     var shuliang = $("span.shuliang").val();
+    var total_stock = $(".total_stock").html();
+    
     if (num > 1) {
         num--;
+        total_stock++;
     }
+    //console.log('total_stock:',total_stock);
+    $(".total_stock").html(total_stock);
+    total_stock == total_stock;
     $('input.num').val(num);
     shuliang == num;
 }
@@ -30,8 +48,14 @@ function bindMinus () {
 function bindPlus() {
     var num = $("input.num").val();
     var shuliang = $("span.shuliang").val();
+    var total_stock = $(".total_stock").html();
     num++;
-    
+    if (total_stock > 1) {
+        total_stock--;
+    }
+    //console.log('total_stock:',total_stock);
+    $(".total_stock").html(total_stock);
+    total_stock == total_stock;
    $('input.num').val(num);
    shuliang == num;
 }
@@ -69,7 +93,9 @@ function bindManual(e) {
             var  priceGroup  = data.data.goodsDetail.priceGroup;
                 _goodsDetail = goodsDetail;
                 _attribute_value = attribute_value;
-                _priceGroup =priceGroup;
+                _priceGroup = priceGroup;
+                _picture    = goodsDetail.picture[0];
+                _low_price  = goodsDetail.low_price;
             console.log(goodsDetail);
             console.log(goodsDetail.attribute+'attribute'); 
             if( goodsDetail.length != 0){
@@ -85,9 +111,9 @@ function bindManual(e) {
                                         "<span class=\"shuoming\">"+goodsDetail.good_name+"</span>"+
                                         "<span class=\"price\">";
                                         if(goodsDetail.low_price == goodsDetail.high_price){
-                                             informArr+="<span>￥"+goodsDetail.low_price+"</span>"
+                                             informArr+="<span>￥"+"<i class=\"low_price\">"+goodsDetail.low_price+"</i>"+"</span>"
                                         }else{
-                                          informArr+="<span>￥"+goodsDetail.low_price+"</span> ~<span>￥"+goodsDetail.high_price+"</span>"+
+                                          informArr+="<span>￥"+"<i class=\"low_price\">"+goodsDetail.low_price+"</i>"+"</span> <span>~￥"+"<i class=\"high_price\">"+goodsDetail.high_price+"</i>"+"</span>"+
                                         "</span>"
                                         }
                                 informArr+="</div>"+
@@ -102,19 +128,19 @@ function bindManual(e) {
                                                     "<div class=\"title\">"+goodsDetail.attribute[0].attribute_name+"：</div>"+
                                                     "<div class=\"leibie\" >";
                                                         for(var k=0;k< goodsDetail.attribute[0].attribute_value.length;k++){
-                                                            informArr+= "<div class=\"text white\" onclick=\"xuanze(this,"+goodsDetail.attribute[0].anid+","+goodsDetail.attribute[0].attribute_value[k].active+","+goodsDetail.attribute[0].attribute_value[k].avid+","+goodsDetail.attribute[0].attribute_value[k].figure+")\"    data-active=\""+goodsDetail.attribute[0].attribute_value[k].active+"\" name=\""+goodsDetail.attribute[0].attribute_value[k].avid+"\"  \">" +goodsDetail.attribute[0].attribute_value[k].attribute_value+"</div>";
+                                                            informArr+= "<div class=\"text white\" onclick=\"xuanze(this,"+goodsDetail.attribute[0].anid+","+goodsDetail.attribute[0].attribute_value[k].active+","+goodsDetail.attribute[0].attribute_value[k].avid+",'"+goodsDetail.attribute[0].attribute_value[k].figure+"')\"    data-active=\""+goodsDetail.attribute[0].attribute_value[k].active+"\" name=\""+goodsDetail.attribute[0].attribute_value[k].avid+"\"  \">" +goodsDetail.attribute[0].attribute_value[k].attribute_value+"</div>";
                                                         };
                                       informArr+= "</div>"+
                                       "</div>"+
                                     "</div>"
                                     }
                                 }
-                           informArr+="<div class=\"mid\">"+
+                           informArr+="<div class=\"mid\" style=\"padding:10px\">"+
                                     "<div class=\"buy\">"+
                                         "<span class=\"shuliang\">购买数量：<i class=\"shuliang\">1</i></span>"+
-                                        "<span class=\"gray\">剩余"+goodsDetail.total_stock+"件</span>"+
+                                        "<span class=\"gray\">剩余<i class=\"total_stock\">"+goodsDetail.total_stock+"</i>件</span>"+
                                      "</div>"+
-                                    "<div class=\"num\">"+
+                                    "<div class=\"num\" style=\"padding:10px;\">"+
                                         "<button class=\"reduce\" onclick=\"bindMinus()\">-</button>"+
                                          "<input type=\"number\"  value=\"1\" class=\"num\" readonly=\"readonly\"/>"+
                                         "<button class=\"add normal\" onclick=\"bindPlus()\">+</button>"+
@@ -122,7 +148,7 @@ function bindManual(e) {
                                     "</div>"+
                                 "<div class=\"btn\">"+
                                     "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
-                                    "<button class=\"buy\" >立即购买</button>"+
+                                    "<button class=\"buy\" onclick=\"buy(this,"+gid+")\">立即购买</button>"+
                               "</div>"+
                           "</div>"
               document.getElementById("carBox").innerHTML=informArr;
@@ -135,11 +161,7 @@ function bindManual(e) {
         }
     });
  }
- //跳转详情
-function url(obj,gid){
-  console.log(2);
-     window.location.href="inform.html?gid="+gid;
-}
+
 $(".weui-mask--visible").on("click",function() {
     $(".carBox,.weui-mask--visible").addClass("none");
      $(".carBox,.weui-mask--visible").css("display","none");
@@ -207,26 +229,31 @@ $(document).ready(function(){
         url : apiRoot+'/api/carousel-goods?sign='+sign+'&operator_id='+ operator_id,
         dataType : 'json',
         success : function(data){
-            //console.log(data,"轮播"); 
+            console.log(data,"轮播"); 
             var carouselGoods = data.data.carouselGoods;
             var fightGroups   = data.data.fightGroups;
             var seckills      = data.data.seckills;
             // 轮播
             if(carouselGoods.length != 0){
+              var informArr0="";
               var informArr1="";
               var informArr2="";
-              for(var i=0;i<carouselGoods.length;i++){
-                var informStr1="<div class=\"swiper-slide\">"+
-                                  "<a href=\"inform.html?gid="+carouselGoods[i].gid+"\"><img src=\""+carouselGoods[i].icon+"\" alt=\"\"></a>"+
-                              "</div>";
-                //swiper-pagination-bullet swiper-pagination-bullet-active
-                var informStr2 ="<span class=\"swiper-pagination-bullet\"></span>";
-                informArr1+=informStr1;
+              for(var i=0;i<carouselGoods.length;i++){  //
+                var informStr0="<div class=\"swiper-slide\" onclick=\"url(this,"+carouselGoods[i].gid+")\"><img src=\""+carouselGoods[i].icon+"\" /></div>";
+                var informStr2 ="<span class=\"swiper-pagination-bullet \"></span>"
+                informArr0+=informStr0;
                 informArr2+=informStr2;
               }
-              document.getElementById("swiper").innerHTML=informArr1;
-              document.getElementById("pagination").innerHTML=informArr2;
-              $("#pagination .swiper-pagination-bullet:first-child").addClass('swiper-pagination-bullet-active');
+              document.getElementById("swiper").innerHTML=informArr0;
+              // document.getElementById("rol").innerHTML=informArr2;
+              // $("#rol .swiper-pagination-bullet:first").addClass('swiper-pagination-bullet-active');
+              var mySwiper = new Swiper('.swiper-container',{ 
+                      autoplay : 3000,//自动运行 
+                      direction: 'horizontal',//水平方向 
+                      loop : true,//可以循环点击 
+                      pagination : '.swiper-pagination',//点 
+                      paginationClickable: true,
+                  }); 
             }else{
               console.log("null")
             }
@@ -342,51 +369,34 @@ $(document).ready(function(){
   })
      //////////////////////////////////////////////
   //选择型号
+  //选择型号
   function xuanze(obj,anid,active,avid,figure) {
-    console.log(_attribute_value+':_attribute_value');
-    console.log(_goodsDetail+':_goodsDetail');
-    console.log(obj);
-    console.log(anid);
-    console.log(active);
-    console.log(avid);
-    console.log(figure);
+    types    = $(obj).html();
+    console.log("types",types);
+    var attr  = 'attr'+anid+':'+avid;
+    var attr1 = anid+':'+avid;
+    _attr  = attr;
+    _attr1 = attr1;
+    if(figure == ''){ //if figure没有新图片则用大图_picture
+        figure = _picture;
+    }
+    $(".left img").attr("src",""+figure+"");
     $(".leibie .text").removeClass("red");
     $(obj).addClass("red");
     setTimeout(function () {     // 获取当前商品的选中状态
-      var active = true;
-      for (var j = 0; j < _attribute_value.length; j++) {
-          _attribute_value[j].active = false;
-          if (avid == _attribute_value[j].avid) {
-                _attribute_value[j].active = true;
-               //console.log(attribute_value[j].active);
-                var avid1 = _attribute_value[j].avid;
-                var figure = _attribute_value[j].figure;
-                if (figure != '') {
-                  figure = _attribute_value[j].figure;
-                } else {
-                  figure = _goodsDetail.picture[0];
-                  //console.log(figure);
-                }
-
-                var attr = anid+':'+avid;
-                console.log(attr);
-                _attr = attr;
-          }
-      }
-     
       for (var i = 0; i < _priceGroup.length; i++) {
-           //console.log(_priceGroup);
+           console.log(_attr);
           if (_priceGroup[i].key == _attr) {
             console.log("iiiiii", i);
             var i = i;
-            var nowPrice = _priceGroup[i].price;
+            nowPrice = _priceGroup[i].price;
             console.log('nowPrice:', nowPrice);
             $(".low_price").text(nowPrice);
             $(".high_price").parent("span").hide();
           }
       }
      
-    })
+    },100)
   }
 //////////////////////////////////////////
 
@@ -409,6 +419,7 @@ $(document).ready(function(){
                 console.log(data);  
                 if(data.status==1){
                     $.toast("加入购物车成功！", "text");
+                    $("#carBox").hide();
                 }else{
                   $.toast("加入购物车失败！", "text");
                 }
@@ -419,6 +430,19 @@ $(document).ready(function(){
             }
         });
     }
-
+  //购买
+  function buy(obj,gid){
+      var num = $("input.num").val();
+      var attr  = _attr1;
+      
+      console.log(attr);
+      console.log(num);
+      console.log(types);
+      if(!nowPrice){
+        nowPrice = _low_price;
+      }
+      console.log(nowPrice);
+      window.location.href="buy.html?gid="+gid +"&nowPrice="+nowPrice +"&attr="+attr+"&num="+num+"&types="+types;
+  }
 
 

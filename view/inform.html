@@ -19,20 +19,16 @@
 	  <link rel="stylesheet" type="text/css" href="../css/inform.css">
 	  <link rel="stylesheet" type="text/css" href="../css/bar.css">
 	  <link rel="stylesheet" type="text/css" href="../css/share.css">
+	  <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
 </head>
 <body>
 	<div id="app">
 		<div id="newsimg"></div>
-		<!-- swiper -->
-		<div class="swiper-container" data-space-between='10' data-pagination='.swiper-pagination' data-autoplay="1000">
-			  <div class="swiper-wrapper"  id="swiper">
-			    <!-- <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1n3rZHFXXXXX9XFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-			    <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i4/TB10rkPGVXXXXXGapXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div>
-			    <div class="swiper-slide"><img src="//gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i1/TB1kQI3HpXXXXbSXFXXXXXXXXXX_!!0-item_pic.jpg_320x320q60.jpg" alt=""></div> -->
-			  </div>
-			  <!-- If we need pagination -->
-	      	<div class="swiper-pagination" id="pagination"></div>
-		</div>
+		<div class="swiper-container">
+            <div class="swiper-wrapper" id="swiper">
+            </div>
+            <div class="swiper-pagination"></div><!-- 小圆点分页器 -->
+        </div>
 		<!-- weui-media-box__desc -->
 		<div class="weui-cells marginNone bgColor">
 	          <div class="weui-cell">
@@ -51,7 +47,7 @@
 		            </div>
 		            <div class="weui-cell__ft">剩余：<span class="total_stock"></span></div>
 	          </div>
-	          <a class="weui-cell weui-cell_access" href="javascript:;" id="xuanze"  onclick="addCar()">
+	          <a class="weui-cell weui-cell_access" href="javascript:;" id="xuanze"  onclick="addCar(this,1)">
 	            <div class="weui-cell__bd">
 	              <p>选择：<span id="shuxing"> </span></p>
 	            </div>
@@ -98,8 +94,8 @@
 		        		</div>
 		        	</div>
 	        	</div>
-	        	<div class="two"   onclick="addCar()">加入购物车</div>
-	        	<div class="three"  onclick="addCar()"">立即购买</div>
+	        	<div class="two"   onclick="addCar(this,2)">加入购物车</div>
+	        	<div class="three"  onclick="addCar(this,3)"">立即购买</div>
 	        </div>
         </div>
         <!-- 弹窗 -->
@@ -194,5 +190,7 @@
 	<script type="text/javascript" src="../js/html2canvas.js"></script>
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/inform.js"></script>
+	<!-- 轮播图 插件-->
+	 <script src="../js/swiper.min.js"></script>
 </body>
 </html>

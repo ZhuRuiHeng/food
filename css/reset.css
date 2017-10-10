@@ -144,3 +144,14 @@ input[type="text"],input[type="password"]{-webkit-appearance:none;appearance:non
 .weui-toast_content{
   padding: 5px!important;
 }
+.swiper-container {
+    width: 100%;
+    height: 140px;
+} 
+.swiper-slide{
+    width: 100%;
+    height: 140px;
+}
+.swiper-pagination-bullet-active{
+  background: #ff4444!important;
+}

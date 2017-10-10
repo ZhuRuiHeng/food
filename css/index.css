@@ -26,8 +26,13 @@ a,a:hover,a:active,a:visited,a:link,a:focus{
 	background:#f2f2f2;	
 }
 .swiper-container {
-	width: 100%;
+    width: 100%;
+    height: 140px;
 } 
+.swiper-slide{
+    width: 100%;
+    height: 140px;
+}
 .swiper-container img {
 	display: block;
 	width: 100%;
@@ -469,4 +474,7 @@ width:150px;
 }
 .show{
     display: block;
+}
+.swiper-pagination-bullet{
+    background: #ff4444;
 }

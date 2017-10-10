@@ -1,7 +1,14 @@
 
 var good_name = '';
 var low_price = "";
+var _low_price = "";//传下页面
 var poster    = "";
+var _picture  = "";//商品小图
+var _priceGroup = "";//价格表
+var _attr     = ""; //在价格表里查找
+var _attr1    = "";//传下页面
+var nowPrice  = "";
+var types     = "";//型号
 var getParam = function () {
     try{
     var url = window.location.href;
@@ -43,9 +50,15 @@ $("#haibao").on("click",function() {
 function bindMinus () {
     var num = $("input.num").val();
     var shuliang = $("span.shuliang").val();
+    var total_stock = $(".total_stock").html();
+    
     if (num > 1) {
         num--;
+        total_stock++;
     }
+    //console.log('total_stock:',total_stock);
+    $(".total_stock").html(total_stock);
+    total_stock == total_stock;
     $('input.num').val(num);
     shuliang == num;
 }
@@ -53,8 +66,14 @@ function bindMinus () {
 function bindPlus() {
     var num = $("input.num").val();
     var shuliang = $("span.shuliang").val();
+    var total_stock = $(".total_stock").html();
     num++;
-    
+    if (total_stock > 1) {
+        total_stock--;
+    }
+    //console.log('total_stock:',total_stock);
+    $(".total_stock").html(total_stock);
+    total_stock == total_stock;
    $('input.num').val(num);
    shuliang == num;
 }
@@ -73,7 +92,7 @@ $(document).on("click",".del",function(){//修改成这样的写法
     /**
      * 页面加载完毕打印键值对对象
      */
-    window.onload = function () {
+    $(document).ready(function(){
         $.showLoading();//加载
         var gid = getParam().gid;
         $.ajax({
@@ -87,6 +106,7 @@ $(document).on("click",".del",function(){//修改成这样的写法
                 console.log(data);  
                 //是否收藏
                 var is_collect = data.data.goodsDetail.is_collect;
+                    _low_price = data.data.goodsDetail.low_price;
                 if(is_collect == 1){
                     $("#qiehuan").attr('src','../images/love.png'); 
                 }
@@ -107,20 +127,34 @@ $(document).on("click",".del",function(){//修改成这样的写法
                 poster    = data.data.goodsDetail.picture[0];
                 // 轮播
                 var picture = data.data.goodsDetail.picture; 
+                   _picture  = data.data.goodsDetail.picture[0];
                 if(picture.length != 0){
+                  var informArr0="";
                   var informArr1="";
                   var informArr2="";
                   for(var i=0;i<picture.length;i++){
-                    var informStr1="<div class=\"swiper-slide\">"+
-                                      "<img src=\""+picture[i]+"\" alt=\"\">"+
-                                  "</div>";
-                    var informStr2 ="<span class=\"swiper-pagination-bullet\"></span>";
-                        informArr1+=informStr1;
-                        informArr2+=informStr2;
-                    }
-                  document.getElementById("swiper").innerHTML=informArr1;
-                  document.getElementById("pagination").innerHTML=informArr2;
-                  $("#pagination .swiper-pagination-bullet:first-child").addClass('swiper-pagination-bullet-active');
+                    // var informStr1="<div class=\"swiper-slide\">"+
+                    //                   "<img src=\""+picture[i]+"\" alt=\"\">"+
+                    //               "</div>";
+                    // var informStr2 ="<span class=\"swiper-pagination-bullet\"></span>";
+                   var informStr0="<div class=\"swiper-slide\"><img src=\""+picture[i]+"\"></div>";
+                    // var informStr0="<div class=\"swiper-slide\" style=\"background: url("+carouselGoods[i].icon+") no-repeat;text-align: center;background-size:100%;\"></div>"
+                    var informStr1 ="<div class=\"swiper-slide\"><img src=\""+picture[0]+"\"></div>";
+                    var informStr2 ="<span class=\"swiper-pagination-bullet \"></span>"
+                    informArr0+=informStr0;
+                    informArr1=informArr0+informStr1;
+                    informArr2+=informStr2;
+                  }
+                  document.getElementById("swiper").innerHTML=informArr0;
+                  //document.getElementById("pagination").innerHTML=informArr2;
+                  //$("#pagination .swiper-pagination-bullet:first-child").addClass('swiper-pagination-bullet-active');
+                   var mySwiper = new Swiper('.swiper-container',{ 
+                        autoplay : 3000,//自动运行 
+                        direction: 'horizontal',//水平方向 
+                        loop : true,//可以循环点击 
+                        pagination : '.swiper-pagination',//点 
+                        paginationClickable: true,
+                    }); 
                  
                 }else{
                   console.log("null")
@@ -159,10 +193,10 @@ $(document).on("click",".del",function(){//修改成这样的写法
                 console.log(e)
             }
         });
-    }
+    })
 
 //加入购物车
- function addCar(){
+ function addCar(obj,id){
     $("#carBox").show();
     var gid = getParam().gid;
     console.log(gid);
@@ -220,29 +254,40 @@ $(document).on("click",".del",function(){//修改成这样的写法
                                                     "<div class=\"title\">"+goodsDetail.attribute[0].attribute_name+"：</div>"+
                                                     "<div class=\"leibie\" >";
                                                         for(var k=0;k< goodsDetail.attribute[0].attribute_value.length;k++){
-                                                            informArr+= "<div class=\"text white\" onclick=\"xuanze(this,"+goodsDetail.attribute[0].anid+","+goodsDetail.attribute[0].attribute_value[k].active+","+goodsDetail.attribute[0].attribute_value[k].avid+","+goodsDetail.attribute[0].attribute_value[k].figure+")\"    data-active=\""+goodsDetail.attribute[0].attribute_value[k].active+"\" name=\""+goodsDetail.attribute[0].attribute_value[k].avid+"\"  \">" +goodsDetail.attribute[0].attribute_value[k].attribute_value+"</div>";
+                                                            informArr+= "<div class=\"text white\" onclick=\"xuanze(this,"+goodsDetail.attribute[0].anid+","+goodsDetail.attribute[0].attribute_value[k].active+","+goodsDetail.attribute[0].attribute_value[k].avid+",'"+goodsDetail.attribute[0].attribute_value[k].figure+"')\"    data-active=\""+goodsDetail.attribute[0].attribute_value[k].active+"\" name=\""+goodsDetail.attribute[0].attribute_value[k].avid+"\"  \">"+goodsDetail.attribute[0].attribute_value[k].attribute_value+"</div>";
                                                         };
                                       informArr+= "</div>"+
                                       "</div>"+
                                     "</div>"
                                     }
                                 }
-                           informArr+="<div class=\"mid\">"+
+                           informArr+="<div class=\"mid\" style=\"padding:10px\">"+
                                           "<div class=\"buy\">"+
                                               "<span class=\"shuliang\">购买数量：<i class=\"shuliang\">1</i></span>"+
-                                              "<span class=\"gray\">剩余"+goodsDetail.total_stock+"件</span>"+
+                                              "<span class=\"gray\">剩余<i class=\"total_stock\">"+goodsDetail.total_stock+"</i>件</span>"+
                                           "</div>"+
                                           "<div class=\"num\">"+
                                               "<button class=\"reduce\" onclick=\"bindMinus()\">-</button>"+
                                                "<input type=\"number\"  value=\"1\" class=\"num\" readonly=\"readonly\"/>"+
                                               "<button class=\"add normal\" onclick=\"bindPlus()\">+</button>"+
                                           "</div>"+
-                                      "</div>"+
-                                      "<div class=\"btn\">"+
-                                          "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
-                                          "<button class=\"buy\" >立即购买</button>"+
-                                    "</div>"+
-                             "</div>"
+                                      "</div>";
+                                      if(id==1){
+                                          informArr+="<div class=\"btn\">"+
+                                            "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
+                                            "<button class=\"buy\" >立即购买</button>"+
+                                          "</div>";
+                                      }else if(id==2){
+                                        informArr+="<div class=\"btn\">"+
+                                            "<button class=\"addCar buy\" onclick=\"addCars(this,"+gid+")\">确定</button>"+
+                                          "</div>";
+                                      }
+                                      else if(id==3){
+                                        informArr+="<div class=\"btn\">"+
+                                            "<button class=\"addCar buy\" onclick=\"buy(this,"+gid+")\">下一步</button>"+
+                                          "</div>";
+                                      }
+                             informArr+= "</div>"
               document.getElementById("carBox").innerHTML=informArr;
             }else{
               console.log("null")
@@ -253,53 +298,36 @@ $(document).on("click",".del",function(){//修改成这样的写法
         }
     });
  }
+
  //////////////////////////////////////////////
   //选择型号
   function xuanze(obj,anid,active,avid,figure) {
-    console.log(_attribute_value+':_attribute_value');
-    console.log(_goodsDetail+':_goodsDetail');
-    console.log(obj);
-    console.log(anid);
-    console.log(active);
-    console.log(avid);
-    console.log(figure);
+    types    = $(obj).html();
+    console.log("types",types);
+    var attr  = 'attr'+anid+':'+avid;
+    var attr1 = anid+':'+avid;
+    _attr  = attr;
+    _attr1 = attr1;
+    if(figure == ''){ //if figure没有新图片则用大图_picture
+        figure = _picture;
+    }
+    $(".left img").attr("src",""+figure+"");
     $(".leibie .text").removeClass("red");
     $(obj).addClass("red");
     setTimeout(function () {     // 获取当前商品的选中状态
-      var active = true;
-      for (var j = 0; j < _attribute_value.length; j++) {
-          _attribute_value[j].active = false;
-          if (avid == _attribute_value[j].avid) {
-                _attribute_value[j].active = true;
-               //console.log(attribute_value[j].active);
-                var avid1 = _attribute_value[j].avid;
-                var figure = _attribute_value[j].figure;
-                if (figure != '') {
-                  figure = _attribute_value[j].figure;
-                } else {
-                  figure = _goodsDetail.picture[0];
-                  //console.log(figure);
-                }
-
-                var attr = anid+':'+avid;
-                console.log(attr);
-                _attr = attr;
-          }
-      }
-     
       for (var i = 0; i < _priceGroup.length; i++) {
-           //console.log(_priceGroup);
+           console.log(_attr);
           if (_priceGroup[i].key == _attr) {
             console.log("iiiiii", i);
             var i = i;
-            var nowPrice = _priceGroup[i].price;
+            nowPrice = _priceGroup[i].price;
             console.log('nowPrice:', nowPrice);
             $(".low_price").text(nowPrice);
             $(".high_price").parent("span").hide();
           }
       }
      
-    })
+    },100)
   }
 
 //加入购物车
@@ -320,6 +348,7 @@ function addCars(obj,gid){
             console.log(data);  
             if(data.status==1){
                 $.toast("加入购物车成功！", "text");
+                $("#carBox").hide();
             }else{
               $.toast("加入购物车失败！", "text");
             }
@@ -329,6 +358,16 @@ function addCars(obj,gid){
             console.log(e)
         }
     });
+}
+//购买
+function buy(obj,gid){
+    var num = $("input.num").val();
+    var attr  = _attr1;
+    console.log(nowPrice);
+    if(!nowPrice){
+      nowPrice = _low_price;
+    }
+    window.location.href="buy.html?gid="+gid +"&nowPrice="+nowPrice +"&attr="+attr+"&num="+num+"&types="+types;
 }
 //收藏
 function like(){

@@ -21,14 +21,6 @@
   <link rel="stylesheet" type="text/css" href="../css/dingdanInform.css">
   <body ontouchstart>
       <div id="app">
-          <div class="weui-cell zhuangtai">
-            <div class="weui-cell__hd">
-              <img style="width: 42px" src="https://qncdn.playonwechat.com/shangcheng/pay.png" alt="" style="width:20px;margin-right:5px;display:block"></div>
-              <div class="weui-cell__bd">
-                  <p id="status"></p>
-                  <p>订单编号：<span id="out_trade_no"></span></p>
-              </div>
-          </div>
           <!-- address -->
           <div class="weui-cells">
               <a class="weui-cell weui-cell_access" href="javascript:;">
@@ -52,6 +44,23 @@
           </div>
           <!-- list -->
           <div class="weui-panel weui-panel_access marginNone" id="list">
+              <div class="weui-panel__bd">
+                <a href="javascript:;" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                          <img src="https://qncdn.playonwechat.com/shop/h5-goods/xk%E8%BD%AE%E6%92%AD%E5%9B%BE3.jpg" class="weui-media-box__thumb">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__desc" id="good_name"></h4>
+                        <p  class="chicun" id="types"></p>
+                        <div class="weui-cell caozuo">
+                            <div class="weui-cell__bd service-price">
+                              <p> ￥<span class="nowPrice"></span></p>
+                            </div>
+                            <div class="weui-cell__ft service-gouwu service">x <span id="num"></span></div>
+                        </div>
+                    </div>
+                  </a>
+              </div>
           </div>
           <div class="weui-cell write">
               <div class="weui-cell__bd">
@@ -62,7 +71,7 @@
           <a class="weui-cell weui-cell_access write" href="javascript:;">
               <div class="weui-cell__hd">留言</div>
               <div class="weui-cell__bd">
-                <p class="liuyan"><input type="text" name="liuyan" id="message" placeholder="" disabled="disabled"></p>
+                <p class="liuyan"><input type="text" name="liuyan" id="message" placeholder="点击给商家留言"></p>
               </div>
           </a>
           <!-- <div class="weui-cells">
@@ -78,7 +87,7 @@
                 <div class="weui-cell__bd">
                   <p>商品金额</p>
                 </div>
-                <div class="weui-cell__ft red">￥<span class="total_fee"></span></div>
+                <div class="weui-cell__ft red">￥<span class="allPrice"></span></div>
               </div>
               <div class="weui-cell sum beforeNone">
                 <div class="weui-cell__bd">
@@ -88,14 +97,19 @@
               </div>
           </div>
           <!-- foot -->
-          <div class="flex">
-              <p class="fheji">合计：<span class="red">￥<span class="total_fee"></span></span></p>
+          <!-- 待支付 -->
+          <div class="flex dai">
+              <p></p>
+              <p>合计：<span class="red">￥<i class="allPrice"></i></span></p>
+              <!-- <p>优惠劵：<span class="red">￥2</span></p> -->
+              <p>实付：<span class="red">￥<i class="allPrice"></i></span></p>
+              <p class="submit">提交订单</p>
           </div>
       </div>
       <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
       <script type="text/javascript" src="../js/jquery-weui.js"></script>
       <script type="text/javascript" src="../js/vue.min.js"></script>
       <script type="text/javascript" src="../js/public.js"></script>
-      <script type="text/javascript" src="../js/dingdanInform.js"></script>
+      <script type="text/javascript" src="../js/buy.js"></script>
   </body>
 </html>

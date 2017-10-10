@@ -35,36 +35,50 @@
           </div>
           <div class="listAll listInform">
               <div class="list">
-                  <a class="flex"  :href ="list.url" v-for="list in lists">
-                      <div class="" >
-                          <img class="image"  v-bind:src="list.pic">
-                          <span>{{list.title}}</span>
-                          <span class="red">{{list.num}}</span>
-                      </div>
+                   <a href="javascript:;" class="flex">  <!--yongjin.html-->
+                    <div>
+                        <img src="../images/tixian.png" class="image">
+                        <span>成功提现佣金</span>
+                        <span class="red"> <i id="withdraw_fee"></i>元</span>
+                    </div>
+                  </a>
+                  <a href="javascript:;" class="flex">
+                    <div>
+                      <img src="../images/yongjin.png" class="image">
+                      <span>累计佣金</span>
+                      <span class="red"><i id="inviter"></i>元 </span>
+                    </div>
+                  </a>
+                  <a href="friends.html" class="flex">
+                    <div>
+                      <img src="../images/haoyou.png" class="image">
+                      <span> 我的好友</span>
+                      <span class="red"><i id="friends"></i>人</span>
+                    </div>
                   </a>
               </div>
           </div>
           <!-- liebiao -->
           <div class="weui-cells">
-              <a class="weui-cell" href="yongjin.html">
+              <a class="weui-cell" href="javascript:;">
                   <div class="weui-cell__hd">
                       <img src="../images/show.png" alt="" style="width:20px;margin-right:5px;display:block">
                   </div>
                   <div class="weui-cell__bd">
                       <p>可提现佣金</p>
                   </div>
-                  <div class="weui-cell__ft red"><span>0</span>元</div>
+                  <div class="weui-cell__ft red"><span id="wallet">0</span>元</div>
               </a>
           </div>
           <div class="weui-cells">
-              <a class="weui-cell weui-cell_access" href="yongjin.html">
+              <a class="weui-cell weui-cell_access" href="mingxi.html">
                   <div class="weui-cell__hd">
                       <img src="../images/mingxi.png" alt="" style="width:20px;margin-right:5px;display:block">
                   </div>
                   <div class="weui-cell__bd">
                       <p>佣金明细</p>
                   </div>
-                  <div class="weui-cell__ft">0笔</div>
+                  <div class="weui-cell__ft"><i id="countCommission"></i>笔</div>
               </a>
           </div>
           <!-- bar -->
@@ -92,39 +106,7 @@
       <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
       <script type="text/javascript" src="../js/jquery-weui.js"></script>
       <script type="text/javascript" src="../js/vue.min.js"></script>
-      <script type="text/javascript">
-        new Vue({ 
-           el: "#app", 
-           data: { 
-             lists:[
-                   {    
-                       url:'yongjin.html',
-                       pic:'../images/tixian.png',
-                       title:'成功提现佣金',
-                       status: "payment",
-                       num:'0元'
-                   },
-                   {
-                       url:'yongjin.html',
-                       pic: '../images/yongjin.png',
-                       title: '累计佣金',
-                       status: "deliver",
-                       num: '0元'
-                   },
-                   {  
-                       url:'friends.html',
-                       pic: '../images/haoyou.png',
-                       title: '我的好友',
-                       status: "receipt",
-                       num: '0人'
-                   }
-
-                ]
-          }, 
-          methods: { 
-              
-           }
-        });
-      </script>
+      <script type="text/javascript" src="../js/public.js"></script>
+      <script type="text/javascript" src="../js/invitation.js"></script>
   </body>
 </html>

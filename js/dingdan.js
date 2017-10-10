@@ -12,6 +12,11 @@
             console.warn("没有参数");
         }
     };
+
+    //详情
+    function xiangqing(obj,oid,status,gbid){
+        window.location.href="dingdanInform.html?oid="+oid+'&status='+status+'&gbid='+gbid;
+    }
     // 确认收货弹窗
      $(document).on("click", ".show-confirm,#show-confirm", function() {
         var oid = $(this).attr('name');
@@ -86,8 +91,8 @@
                 if( orderList.length != 0){
                 $(".noOrder").hide();
                  var informArr="";
-                  for(var i=0;i< orderList.length;i++){
-                    var informStr="<div class=\"weui-panel weui-panel_access\">"+
+                  for(var i=0;i< orderList.length;i++){  //onclick="../shangpinInform/shangpinInform?oid=402&status1=close&gbid=0"
+                    var informStr="<div class=\"weui-panel weui-panel_access\" onclick=\"xiangqing(this,"+orderList[i].order_id+","+orderList[i].status+","+orderList[i].gbid+")\">"+
                                         "<div class=\"weui-cells marginNone write\">"+
                                             "<a href=\"javascript:;\" class=\"weui-cell weui-cell_access shopTitle\">"+
                                                 "<div class=\"weui-cell__bd\">"+
@@ -196,7 +201,7 @@
                if( orderList.length != 0){
                   var informArr="";
                   for(var i=0;i< orderList.length;i++){
-                   var  informStr="<div class=\"weui-panel weui-panel_access\">"+
+                   var  informStr="<div class=\"weui-panel weui-panel_access\" onclick=\"xiangqing(this,"+orderList[i].order_id+","+orderList[i].status+","+orderList[i].gbid+")\">"+
                                         "<div class=\"weui-cells marginNone write\">"+
                                             "<a href=\"javascript:;\" class=\"weui-cell weui-cell_access shopTitle\">"+
                                                 "<div class=\"weui-cell__bd\">"+
@@ -310,7 +315,7 @@
                     if( orderList.length != 0){
                       var informArr="";
                       for(var i=0;i< orderList.length;i++){
-                       var  informStr="<div class=\"weui-panel weui-panel_access\">"+
+                       var  informStr="<div class=\"weui-panel weui-panel_access\" onclick=\"xiangqing(this,"+orderList[i].order_id+","+orderList[i].status+","+orderList[i].gbid+")\">"+
                                             "<div class=\"weui-cells marginNone write\">"+
                                                 "<a href=\"javascript:;\" class=\"weui-cell weui-cell_access shopTitle\">"+
                                                     "<div class=\"weui-cell__bd\">"+

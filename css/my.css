@@ -63,6 +63,7 @@
     position: relative;
 }
 .listAll .list .flex span.num{
+  display: none;
   position:absolute;
   right:30px;
   height:1.6em;
