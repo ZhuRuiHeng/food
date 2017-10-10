@@ -48,7 +48,7 @@
             
         </div>
         <!-- group -->
-        <div class="group grouptuan">
+        <!-- <div class="group grouptuan">
             <div class="weui-cells afterNone">
               <a class="weui-cell" href="pintuan.html">
                 <div class="weui-cell__bd">
@@ -61,9 +61,9 @@
             <div class="groupContent pintuan" id="fightGroups">
                 
             </div>
-        </div>
+        </div> -->
         <!-- miaosha -->
-        <div class="group groupmiao">
+        <!-- <div class="group groupmiao">
             <div class="weui-cells">
               <a class="weui-cell weui-cell_access" href="javascript:;">
                 <div class="weui-cell__bd">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="like"> 猜你喜欢 </div>
         <!-- list -->
         <!-- 容器 -->
@@ -154,64 +154,39 @@
     <!-- 弹窗 -->
     <div id="carBox"></div>
 	<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
-<!--   <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+  <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
   <script type="text/javascript">
-  $(document).ready(function(){ 
-      window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc7b71ea532a9982c&redirect_uri=https%3a%2f%2fshop.playonwechat.com%2fapi%2fh5-auth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+  // $(document).ready(function(){ 
+  //     window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc7b71ea532a9982c&redirect_uri=https%3a%2f%2fshop.playonwechat.com%2fapi%2fh5-auth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
      
-      (function(){
-          var _href = decodeURIComponent(window.location.href);
-          alert("_href"+_href);
-          function GetRequest() {
-            var url = location.search; //获取url中"?"符后的字串
-            var theRequest = new Object();
-            if (url.indexOf("?") != -1) {
-              var str = decodeURIComponent(url.substr(1));
-              strs = str.split("&");
-              for (var i = 0; i < strs.length; i++) {
-                theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-              }
-            }
-            return theRequest;
-          }
-          var Request = new Object();
-          Request = GetRequest();
-          var sign = Request['sign'];
-          var nickname = decodeURIComponent(Request['nickname']);
-          var avatar = Request['avatar'];
-          alert("sign:"+sign);
-          alert("nickname:"+nickname);
-          alert("avatar:"+avatar);
-          localStorage.setItem("sign1", sign);
-          localStorage.setItem("nickname1",nickname);
-          localStorage.setItem("avatar1", avatar);
-           console.log("sign:"+sign);
-          localStorage.setItem("sign", sign);
-        })();
-
-
-        // 微信授权
-        $.ajax({
-          url: "https://shop.playonwechat.com/api/h5-auth",
-          dataType: "json",
-          data:{
-            url: _url
-          },
-          success: function(data) {
-            wx.config({
-                debug: false,
-                appId: data.appid,
-                timestamp:data.timestamp ,
-                nonceStr:data.nonceStr,
-                signature: data.sign
-            });
-          }
-        });
-      // if (!sign) {
-      //   window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc7b71ea532a9982c&redirect_uri=https%3a%2f%2fshop.playonwechat.com%2fapi%2fh5-auth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
-      // }
-})
-  </script> -->
+  //     (function(){
+  //         var _href = decodeURIComponent(window.location.href);
+  //         alert("_href"+_href);
+  //         function GetRequest() {
+  //           var url = location.search; //获取url中"?"符后的字串
+  //           var theRequest = new Object();
+  //           if (url.indexOf("?") != -1) {
+  //             var str = decodeURIComponent(url.substr(1));
+  //             strs = str.split("&");
+  //             for (var i = 0; i < strs.length; i++) {
+  //               theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+  //             }
+  //           }
+  //           return theRequest;
+  //         }
+  //         var Request = new Object();
+  //         Request = GetRequest();
+  //         var sign = Request['sign'];
+  //         var nickname = decodeURIComponent(Request['nickname']);
+  //         var avatar = Request['avatar'];
+  //         localStorage.setItem("sign1", sign);
+  //         localStorage.setItem("nickname1",nickname);
+  //         localStorage.setItem("avatar1", avatar);
+  //          console.log("sign:"+sign);
+  //         localStorage.setItem("sign", sign);
+  //       })();
+  // })
+  </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="../js/jquery-weui.js"></script>

@@ -1,0 +1,63 @@
+    body, html {
+  height: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.demos-title {
+  text-align: center;
+  font-size: 34px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+.demos-sub-title {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+}
+
+.demos-header {
+  padding: 35px 0;
+}
+
+.demos-content-padded {
+  padding: 15px;
+}
+
+.demos-second-title {
+  text-align: center;
+  font-size: 24px;
+  color: #3cc51f;
+  font-weight: 400;
+  margin: 0 15%;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+}
+
+footer a {
+  color: #999;
+  text-decoration: none;
+} 
+.toolbar .title,.toolbar .picker-button{
+  font-size: 14px;
+}
+.weui-picker-modal .picker-item{
+  font-size: 13px;
+  text-align: center;
+}
+.weui-btn{
+      height: 36px;
+    line-height: 36px;
+    font-size: 15px;
+}
+.weui-btn.weui-btn_primary{
+  background-color: #1AAD19;
+  color:#fff;
+}
+.weui-btn.weui-btn_default{
+  background-color: #fff;
+}

@@ -369,7 +369,6 @@ $(document).ready(function(){
   })
      //////////////////////////////////////////////
   //选择型号
-  //选择型号
   function xuanze(obj,anid,active,avid,figure) {
     types    = $(obj).html();
     console.log("types",types);

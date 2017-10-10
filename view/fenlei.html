@@ -19,10 +19,23 @@
   <link rel="stylesheet" type="text/css" href="../css/weui.css">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" type="text/css" href="../css/fenlei.css">
+  <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
   <body ontouchstart>
       <div id="app">
+          <div id="header" class="swiper-container-horizontal swiper-container-free-mode">
+              <div class="swiper-wrapper" id="tab" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                  <div class="swiper-slide swiper-slide-active">新闻</div>
+                  <div class="swiper-slide swiper-slide-next">财经</div>
+                  <div class="swiper-slide">娱乐</div>
+                  <div class="swiper-slide">体育</div>
+                  <div class="swiper-slide">订阅</div>
+                  <div class="swiper-slide">微博</div>
+                  <div class="swiper-slide">空间</div>
+                  <div class="swiper-slide">书城</div>
+              </div>
+          </div>
           <!-- nav -->
-          <div class="find_nav">
+          <!-- <div class="find_nav">
               <div class="find_nav_left">
                   <div class="find_nav_list">
                       <ul id="navs">
@@ -30,7 +43,7 @@
                       </ul>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!--  noOrder-->
           <div class="noOrder" style="display: none;margin-top: 45px;">暂时没有此分类！</div>
           <!-- list -->
@@ -81,9 +94,19 @@
           </div>
       </div>
       <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
+      <script type="text/javascript" src="../js/swiper.jquery.js"></script>
       <script type="text/javascript" src="../js/jquery-weui.js"></script>
       <script type="text/javascript" src="../js/vue.min.js"></script>
       <script type="text/javascript" src="../js/public.js"></script>
       <script type="text/javascript" src="../js/fenlei.js"></script>
+      <script type="text/javascript">
+          window.onload = function() {
+            var mySwiper1 = new Swiper('#header',{
+                freeMode : true,
+                slidesPerView : 'auto',
+                freeModeSticky : true ,
+            });
+          }
+      </script>
   </body>
 </html>

@@ -43,7 +43,7 @@ $(".weui-gallery").click(function() {
    $(".weui-gallery").hide();
 });
 $("#haibao").on("click",function() {
-   window.location.href="share.html?good_name="+good_name+"&low_price="+low_price+"&poster="+poster+"";
+   window.location.href="share.html?good_name="+good_name+"&low_price="+low_price+"&poster="+poster+"&gid="+gid;
 });
 
 // 加减
