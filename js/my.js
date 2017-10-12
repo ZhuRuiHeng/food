@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+   
     //数目
     $.ajax({
         type:"post",
@@ -24,11 +25,11 @@ $(document).ready(function(){
                 $(".num4").text(countFinish).show();
             }
             var is_membership = data.data.is_membership; 
-            // if(is_membership == false){
-            //     $(".daren,.user").hide();
-            // }else{
-            //     $(".daren,.user").show();
-            // }
+            if(is_membership == false){
+                $(".daren,.user").hide();
+            }else{
+                $(".daren,.user").show();
+            }
             var service = data.data.service;
             $("#service").attr("href","tel:"+service+"");
         },

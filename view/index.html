@@ -154,39 +154,6 @@
     <!-- 弹窗 -->
     <div id="carBox"></div>
 	<script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
-  <script src="http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
-  <script type="text/javascript">
-  // $(document).ready(function(){ 
-  //     window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc7b71ea532a9982c&redirect_uri=https%3a%2f%2fshop.playonwechat.com%2fapi%2fh5-auth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
-     
-  //     (function(){
-  //         var _href = decodeURIComponent(window.location.href);
-  //         alert("_href"+_href);
-  //         function GetRequest() {
-  //           var url = location.search; //获取url中"?"符后的字串
-  //           var theRequest = new Object();
-  //           if (url.indexOf("?") != -1) {
-  //             var str = decodeURIComponent(url.substr(1));
-  //             strs = str.split("&");
-  //             for (var i = 0; i < strs.length; i++) {
-  //               theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
-  //             }
-  //           }
-  //           return theRequest;
-  //         }
-  //         var Request = new Object();
-  //         Request = GetRequest();
-  //         var sign = Request['sign'];
-  //         var nickname = decodeURIComponent(Request['nickname']);
-  //         var avatar = Request['avatar'];
-  //         localStorage.setItem("sign1", sign);
-  //         localStorage.setItem("nickname1",nickname);
-  //         localStorage.setItem("avatar1", avatar);
-  //          console.log("sign:"+sign);
-  //         localStorage.setItem("sign", sign);
-  //       })();
-  // })
-  </script>
   <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
   <script type="text/javascript" src="../js/jquery-2.1.4.js"></script>
   <script type="text/javascript" src="../js/jquery-weui.js"></script>
@@ -196,6 +163,43 @@
   <script type="text/javascript" src="../js/public.js"></script>
   <script type="text/javascript" src="../js/index.js"></script>
   <script type="text/javascript" src="../js/vconsole.min.js"></script> 
+  <script type="text/javascript">
+
+  $(document).ready(function(){ 
+      // if(!sign){
+      //     window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc7b71ea532a9982c&redirect_uri=https%3a%2f%2fshop.playonwechat.com%2fapi%2fh5-auth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect';
+     
+      //     (function(){
+      //         var _href = decodeURIComponent(window.location.href);
+      //         //alert("_href"+_href);
+      //         function GetRequest() {
+      //           var url = location.search; //获取url中"?"符后的字串
+      //           var theRequest = new Object();
+      //           if (url.indexOf("?") != -1) {
+      //             var str = decodeURIComponent(url.substr(1));
+      //             strs = str.split("&");
+      //             for (var i = 0; i < strs.length; i++) {
+      //               theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+      //             }
+      //           }
+      //           return theRequest;
+      //         }
+      //         var Request = new Object();
+      //         Request = GetRequest();
+      //         var sign = Request['sign'];
+      //         var nickname = decodeURIComponent(Request['nickname']);
+      //         var avatar = Request['avatar'];
+      //         console.log(sign);
+      //         console.log(nickname);
+      //         localStorage.setItem("sign", sign);
+      //         localStorage.setItem("nickname",nickname);
+      //         localStorage.setItem("avatar", avatar);
+      //          console.log("sign:"+sign);
+      //         localStorage.setItem("sign", sign);
+      //       })();
+      // }
+  })
+  </script>
   <!-- 轮播图 插件-->
   <script src="../js/swiper.min.js"></script>
   <script>

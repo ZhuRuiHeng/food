@@ -7,8 +7,6 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 0;
-  width: 64px;
-  margin: 0 auto;
 }
 .userinfo-avatar {
   width: 32px;
@@ -38,6 +36,17 @@
   font-size:12px;
   position: relative;
 }
+#nickname{
+  display: inline-block;
+    width: 80px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.weui-cells.user{
+  display: none;
+}
 .userinfo-nickname .daren{
     position: absolute;
     background: #22da9c;
@@ -45,8 +54,10 @@
     border-radius: 6px;
     width: 56px;
     text-align: center;
-    left: 30px;
+    left: 80px;
+    top: 0px;
     font-size: 10px;
+    display: none;
 }
 .listAll{
     padding:0 0 10px 0;

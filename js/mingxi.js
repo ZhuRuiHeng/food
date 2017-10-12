@@ -24,7 +24,7 @@
                                                     "<p class=\"weui-media-box__desc\">成为代理商时间："+commissionList[i].sharer_time+"</p>"+
                                                 "</div>"+
                                                 "<div class=\"weui-media-box__hd right\">"+
-                                                    ""+commissionList[i].mid+"</h4>"+
+                                                    ""+commissionList[i].commission_fee+"</h4>"+
                                                 "</div>"+
                                             "</a>"+
                                         "</div>";

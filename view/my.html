@@ -22,8 +22,10 @@
       <div id="app">
           <div class="mine">
               <div class="userinfo">
-                  <div class="user_circle2"><img src="https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIjNvnBqkvMeR1cMYlhbia2bn2lzgLQDQJXwLSPxfEVx7JTRa3LBKoD1fn4NMrjaJiaMk0mIkcdPkvA/0"></div>
-                  <p class="userinfo-nickname">昵称<span class="daren">分享达人</span></p>
+                  <div class="user_circle2">
+                      <img id="avatar" src="">
+                  </div>
+                  <div class="userinfo-nickname"><p id="nickname"></p><span class="daren" style="display:none">分享达人</span></div>
               </div>
           </div>
           <div class="xuanze">
@@ -38,7 +40,7 @@
           </div>
           <div class="listAll">
               <div class="list">
-                  <a href="dingdan.html?status=payment" class="flex">
+                  <a href="dingdan.html?status=payment" class="flex" style="display:none">
                     <div>
                       <span class="num num1"></span>
                       <img src="https://qncdn.playonwechat.com/shangcheng/fu.png" class="image"> 
@@ -103,12 +105,45 @@
               </a>
           </div>
           <div class="weui-cells">
-              <a class="weui-cell weui-cell_access" id="service" href="">
+              <a class="weui-cell weui-cell_access" id="service" href="10086">
                   <div class="weui-cell__hd">
                       <img src="../images/kefu.png" alt="" style="width:20px;margin-right:5px;display:block">
                   </div>
                   <div class="weui-cell__bd">
                       <p>联系客服</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+          <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" id="" href="sms:10086?body=message_body">
+                  <div class="weui-cell__hd">
+                      <img src="../images/kefu.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>短信</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+           <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" id="" href="mailto:c1586@qq.com?subject=TestObject">
+                  <div class="weui-cell__hd">
+                      <img src="../images/kefu.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>邮箱</p>
+                  </div>
+                  <div class="weui-cell__ft"></div>
+              </a>
+          </div>
+          <div class="weui-cells">
+              <a class="weui-cell weui-cell_access" id="" href="geopoint:116.281469,39.866035">
+                  <div class="weui-cell__hd">
+                      <img src="../images/kefu.png" alt="" style="width:20px;margin-right:5px;display:block">
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>我的位置</p>
                   </div>
                   <div class="weui-cell__ft"></div>
               </a>

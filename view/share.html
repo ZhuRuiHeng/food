@@ -23,7 +23,7 @@
 		<div id="newsimg"></div>
 		<div class="haibao" id="demo">
 			<div class="niceImg">
-				<img class="poster" src="../images/1.jpg">
+				<img class="poster" src="../images/haibao.png">
 			</div>
 			<div class="niceText">
 				<div class="left">
@@ -32,7 +32,7 @@
 					<p>长按二维码查看详情</p>
 				</div>
 				<div class="right">
-					<img id="ewm" src="">
+					<img id="ewm" src="../images/demo.jpg">
 					<p style="text-align: center">过期时间</p>
 				</div>
 			</div>
@@ -63,11 +63,13 @@
 			};
     		//接收传参赋值
 			$(".good_name").text(decodeURI(getParam().good_name));
-			var gid = getParam().gid;
+			var gid    = getParam().gid;
+			var poster = getParam().poster;
+			//poster.crossOrigin="anonymous"; //关键
 			console.log(gid);
 			$(".low_price").text(getParam().low_price);
-			// $(".poster").attr("src", ""+getParam().poster+"");
-			// $(".poster").crossOrigin="anonymous";
+			//$(".poster").attr("src", poster);
+
 			   $.ajax({
 			          type:"get",
 			          url : apiRoot+'/api/generate-qrcode?sign='+sign+'&operator_id='+ operator_id,
@@ -81,7 +83,8 @@
 			              var status = data.status; 
 			             if(status==1){
 			             	var ewm = data.url;
-			             	$("#ewm").attr("src",ewm);
+			             	//ewm.crossOrigin="anonymous"; //关键
+			             	//$("#ewm").attr("src",ewm);
 			             }else{
 			             	$.toast("二维码生成失败", "text");
 			             }
@@ -93,30 +96,34 @@
     	});
 
     	$.showLoading();
-  //   	document.createElement("canvas").toDataURL(); //引用外部图片跨域设置img.crossOrigin="anonymous"; //关键
-		// setTimeout(function(){  
-		// 	html2canvas(document.body, {  
-  //               allowTaint: true,  
-  //               taintTest: false,  
-  //               onrendered: function(canvas) {  
-  //                   canvas.id = "mycanvas";  
-  //                   //document.body.appendChild(canvas);  
-  //                   //生成base64图片数据  
-  //                   var dataUrl = canvas.toDataURL();  
-  //                   //console.log(dataUrl);
-  //                   var newImg = document.createElement("img");  
-  //                   newImg.crossOrigin="anonymous"; //关键
-  //                   newImg.src =  dataUrl;  
-  //                   console.log(newImg);
-  //                   $("#newsimg").html(newImg);
-  //                   $(".foot,content.two,#demo").hide();
-  //                   $("body").css("background","#000");
-  //                   //document.body.appendChild(newImg);  
-  //               } 
-		// 	})
-		// 	$.hideLoading();
-		// 	$.toast("操作成功");
-  //       },300);  
+    	
+		setTimeout(function(){  
+			document.createElement("canvas").toDataURL(); //引用外部图片跨域设置img.crossOrigin="anonymous"; //关键
+			html2canvas(document.body, {  
+                allowTaint: true,  
+                taintTest: false,  
+                onrendered: function(canvas) {  
+                    canvas.id = "mycanvas";  
+
+                    //document.body.appendChild(canvas);  
+                    //生成base64图片数据  
+                    var dataUrl = canvas.toDataURL();  
+                    //console.log(dataUrl);
+                    var newImg = document.createElement("img");  
+                    //newImg.crossOrigin="anonymous"; //关键
+                    newImg.src =  dataUrl;  
+                    //console.log(newImg);
+                    //console.log(newImg);
+                    $("#newsimg").html(newImg);
+                    $(".foot,content.two,#demo").hide();
+                    $("body").css("background","#000");
+                    //document.body.appendChild(newImg);  
+                } 
+			})
+			$.hideLoading();
+			$.toast("海报生成成功，长按保存！");
+			
+        },600);  
     </script>
 </body>
 </html>

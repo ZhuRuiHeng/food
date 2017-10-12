@@ -13,13 +13,14 @@
  var _attr1 = "";
  var nowPrice  = "";
  var types     = "";//型号
+
 $(".swiper-container").swiper({
     loop: true,
     autoplay: 3000
   });
  //跳转详情
 function url(obj,gid){
-  console.log(2);
+      console.log(2);
      window.location.href="inform.html?gid="+gid;
 }
 $("#searchBar").click(function(){
@@ -69,6 +70,7 @@ function bindManual(e) {
 
 //购买
  function addCar(obj,gid){
+    
     $("#carBox").show();
     var gid = gid;
     //console.log(gid);
@@ -148,7 +150,7 @@ function bindManual(e) {
                                     "</div>"+
                                 "<div class=\"btn\">"+
                                     "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
-                                    "<button class=\"buy\" onclick=\"buy(this,"+gid+")\">立即购买</button>"+
+                                    // "<button class=\"buy\" onclick=\"buy(this,"+gid+")\">立即购买</button>"+
                               "</div>"+
                           "</div>"
               document.getElementById("carBox").innerHTML=informArr;
@@ -189,10 +191,11 @@ $(".weui-mask--visible").on("click",function() {
               for(var i=0;i< goodsList.length;i++){
                 var informStr="<div class=\"weui-panel weui-panel_access\">"+
                                     "<div class=\"weui-panel__bd\">"+
-                                      "<a href=\"javascript:;\"  class=\"weui-media-box weui-media-box_appmsg\">"+
+                                      "<a href=\"javascript:;\"  class=\"weui-media-box weui-media-box_appmsg onclick=\"url(this,"+goodsList[i].gid+")\">"+
                                         "<div class=\"weui-media-box__hd\" onclick=\"url(this,"+goodsList[i].gid+")\">"+
                                             "<img class=\"weui-media-box__thumb\" src=\""+goodsList[i].picture+"\">"+
                                         "</div>"+
+                                        "<div class=\"weui-media-box__bd absolute\" onclick=\"url(this,"+goodsList[i].gid+")\"></div>"+
                                         "<div class=\"weui-media-box__bd\">"+
                                             "<h4 class=\"weui-media-box__desc\">"+goodsList[i].good_name+"</h4>"+
                                             "<div class=\"weui-cell caozuo\">"+
@@ -223,7 +226,7 @@ $(".weui-mask--visible").on("click",function() {
 });
 ////////////////////////////////////////////////
 $(document).ready(function(){
-    $.showLoading();
+    // $.showLoading();
     $.ajax({
         type:"get",
         url : apiRoot+'/api/carousel-goods?sign='+sign+'&operator_id='+ operator_id,
@@ -339,6 +342,7 @@ $(document).ready(function(){
                                             "<div class=\"weui-media-box__hd\" onclick=\"url(this,"+goodsList[i].gid+")\">"+
                                                 "<img class=\"weui-media-box__thumb\" src=\""+goodsList[i].picture+"\">"+
                                             "</div>"+
+                                            "<div class=\"weui-media-box__bd absolute\" onclick=\"url(this,"+goodsList[i].gid+")\"></div>"+
                                             "<div class=\"weui-media-box__bd\">"+
                                                 "<h4 class=\"weui-media-box__desc\">"+goodsList[i].good_name+"</h4>"+
                                                 "<div class=\"weui-cell caozuo\">"+
@@ -365,7 +369,6 @@ $(document).ready(function(){
                 console.log(e)
             }
         });
-        $.hideLoading();
   })
      //////////////////////////////////////////////
   //选择型号

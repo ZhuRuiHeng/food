@@ -20,30 +20,21 @@
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" type="text/css" href="../css/fenlei.css">
   <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
+  
   <body ontouchstart>
       <div id="app">
           <div id="header" class="swiper-container-horizontal swiper-container-free-mode">
               <div class="swiper-wrapper" id="tab" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
-                  <div class="swiper-slide swiper-slide-active">新闻</div>
+                 <!--  <div class="swiper-slide swiper-slide-active">新闻</div>
                   <div class="swiper-slide swiper-slide-next">财经</div>
                   <div class="swiper-slide">娱乐</div>
                   <div class="swiper-slide">体育</div>
                   <div class="swiper-slide">订阅</div>
                   <div class="swiper-slide">微博</div>
                   <div class="swiper-slide">空间</div>
-                  <div class="swiper-slide">书城</div>
+                  <div class="swiper-slide">书城</div> -->
               </div>
           </div>
-          <!-- nav -->
-          <!-- <div class="find_nav">
-              <div class="find_nav_left">
-                  <div class="find_nav_list">
-                      <ul id="navs">
-                          <li class="sideline" style="width: 24px"></li>
-                      </ul>
-                  </div>
-              </div>
-          </div> -->
           <!--  noOrder-->
           <div class="noOrder" style="display: none;margin-top: 45px;">暂时没有此分类！</div>
           <!-- list -->
@@ -52,44 +43,46 @@
           </div>
 
           <!-- 弹窗 -->
-          <div class="weui-mask weui-mask--visible service" style="display: none"></div>
-          <div class="carBox service" id="carBox" style="display: none">
-              <!-- <div class="padding">
-                  <div class="top">
-                      <div class="left">
-                          <image src="https://shop.playonwechat.com/assets/images/goods/201709/TB2Imq3XnZKL1JjSZFIXXX_DFXa_!!1747771701.jpg"></image>
+          <div id="carBox">
+              <!-- <div class="weui-mask weui-mask--visible service" style="display: none"></div>
+              <div class="carBox service"  style="display: none">
+                  <div class="padding">
+                      <div class="top">
+                          <div class="left">
+                              <image src="https://shop.playonwechat.com/assets/images/goods/201709/TB2Imq3XnZKL1JjSZFIXXX_DFXa_!!1747771701.jpg"></image>
+                          </div>
+                          <div class="right">
+                              <span class="shuoming"></span>
+                              <span class="price">
+                                  <span>￥222</span> ~<span>￥333</span>
+                              </span>
+                          </div>
+                          <div class="del">
+                              <image src="https://qncdn.playonwechat.com/shangcheng/icon_close.png" mode="widthFix"></image>
+                          </div>
                       </div>
-                      <div class="right">
-                          <span class="shuoming"></span>
-                          <span class="price">
-                              <span>￥222</span> ~<span>￥333</span>
-                          </span>
+                      <div class="kuanshi">
+                          <div class="title">尺寸：</div>
+                          <div class="leibie">
+                              <div class="text white">wertr</div>
+                          </div>
                       </div>
-                      <div class="del">
-                          <image src="https://qncdn.playonwechat.com/shangcheng/icon_close.png" mode="widthFix"></image>
+                      <div class="mid">
+                          <div class="buy">
+                              <span>购买数量：22</span>
+                              <span class="gray">剩余4444件</span>
+                          </div>
+                          <div class="num">
+                              <button class="reduce" >-</button>
+                              <input type="number"  value="1" readonly="readonly"/>
+                              <button class="add normal">+</button>
+                          </div>
                       </div>
                   </div>
-                  <div class="kuanshi">
-                      <div class="title">尺寸：</div>
-                      <div class="leibie">
-                          <div class="text white">wertr</div>
-                      </div>
+                  <div class="btn">
+                      <button class="addCar">加入购物车</button>
+                      <button class="buy" >立即购买</button>
                   </div>
-                  <div class="mid">
-                      <div class="buy">
-                          <span>购买数量：22</span>
-                          <span class="gray">剩余4444件</span>
-                      </div>
-                      <div class="num">
-                          <button class="reduce" >-</button>
-                          <input type="number"  value="1" readonly="readonly"/>
-                          <button class="add normal">+</button>
-                      </div>
-                  </div>
-              </div>
-              <div class="btn">
-                  <button class="addCar">加入购物车</button>
-                  <button class="buy" >立即购买</button>
               </div> -->
           </div>
       </div>

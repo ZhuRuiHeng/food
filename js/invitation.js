@@ -12,6 +12,7 @@
                 $("#friends").text(parseInt(data.data.memberInfo.friends));
                 $("#wallet").text(parseInt(data.data.memberInfo.wallet).toFixed(2));
                 $("#withdraw_fee").text(parseInt(data.data.memberInfo.withdraw_fee).toFixed(2));
+                $("#inviter").text(parseInt(data.data.memberInfo.inviter));
                 var inviter = "";
                 var wallet = $("#wallet").text();
                 var wallet = Number(wallet);

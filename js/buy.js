@@ -3,10 +3,19 @@ var price = '';
 var low_price = '';
 var type = '';
 //缓存拿收货地址
-var name="周三",phone="1321423534",address="深圳";
-$("#name").text(name);
-$("#phone").text(phone);
-$("#address").text(address);
+var receiver1 = localStorage.getItem("receiver1");
+var phone1    = localStorage.getItem("phone1");
+var address1  = localStorage.getItem("address1");
+if(!receiver1 || !phone1 || !address1){
+    $("#liebiao").hide();
+}else{
+    $("#newadd").hide();
+}
+
+
+$("#name").text(receiver1);
+$("#phone").text(phone1);
+$("#address").text(address1);
 // 地址结束
 var getParam = function () {
     try{

@@ -1,9 +1,40 @@
     
     var carList = "";
     var change_carts = '';
+    var selectAllStatus = true;//默认全选
 
     $(function() {
         FastClick.attach(document.body);
+    });
+
+    
+    $(document).on("click",".jiesuan",function(){
+        TotalPrice();
+        var totalPrice = $("#allPrice").text();
+        console.log("totalPrice:"+totalPrice);
+        var gouwu = [];
+        for (var i = 0; i < carList.length; i++) {     // 循环列表得到每个数据
+          if (carList[i].selected) { 
+            var both = {}; //选中新的数组对象
+            //var total += carList[i].number * carList[i].price;     // 所有价格加起来
+            //console.log(carts[i].good_name);
+            both.good_name = carList[i].good_name; //新建both对象
+            both.number    = carList[i].number;
+            both.price     = carList[i].price;
+            both.attribute_value = carList[i].attribute_value;
+            both.figure = carList[i].figure;
+            both.detail = carList[i].attribute;
+            both.gid = carList[i].gid;
+            gouwu[i] = both; //将多个both对象pushgouwu数组
+            //console.log("both",both);
+          }
+        }
+        console.log("gouwu",gouwu);
+        var gouwu1 = JSON.stringify(gouwu);
+        localStorage.setItem("gouwu", gouwu1);
+        setTimeout(function(){
+            window.location.href="carbuy.html?totalPrice="+totalPrice;
+        },300)
     })
    // 编辑
     $(document).on("click","#bianji",function(e){//修改成这样的写法  
@@ -20,7 +51,7 @@
             }
             change_carts = change_carts.substr(0, change_carts.length - 1); // 截取最后一位字符
 
-            console.log("change_carts:", change_carts);
+           //console.log("change_carts:", change_carts);
             if (change_carts.length != 0){
                //编辑post访问接口
                 $.ajax({
@@ -65,8 +96,6 @@
         var key = carList[index].key; //添加字段
         var str = key + '|' + num;
         carList[index].str = str;
-        console.log(str);
-        console.log(carList);
     }
     /* 点击加号 */
     function bindPlus(e,gid,index) {
@@ -78,8 +107,6 @@
         var key = carList[index].key;//添加字段
         var str = key + '|' + num;
         carList[index].str = str;
-        console.log(str);
-        console.log(carList);
     }
 
     /* 输入框事件 */
@@ -100,17 +127,38 @@
             $("#cars .weui-check__label .weui-cell__hd").addClass('checked').children("input").attr("checked",true);
             TotalPrice();
         }
+        var allsele = $(this).children("input").attr("checked");
+        console.log('allsele:'+allsele);
+        if(allsele == undefined){
+            selectAllStatus = false; //不全选
+        }else{
+            selectAllStatus = true; //全选
+        }
+
+        for (var i = 0; i < carList.length; i++) {
+          carList[i].selected = selectAllStatus;            // 改变所有商品状态与全选全部选一致
+        }
+        console.log("carList:",carList);
     });
   
     //单选
     $(document).on("click","#cars .weui-cell__hd",function(){
        if($(this).hasClass("checked")){
             $(this).removeClass("checked").children("input").attr("checked",false);
-             TotalPrice();
+            TotalPrice();
         }else{
             $(this).addClass("checked").children("input").attr("checked",true);
             TotalPrice();
         }
+        $("#all").removeClass('checked').children("input").attr("checked",false);
+        selectAllStatus = false; //取消默认全选
+        var index = $(this).attr("name");    // 获取data- 传进来的index
+        var selected = carList[index].selected;         // 获取当前商品的选中状态
+            carList[index].selected = !selected;
+        console.log(index);
+        console.log(carList[index].selected);
+        
+        console.log("carList:",carList);
     })
     //总价
     function TotalPrice() {

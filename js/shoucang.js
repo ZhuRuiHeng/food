@@ -127,7 +127,7 @@ function url(obj,gid){
                                       "</div>"+
                                       "<div class=\"btn\">"+
                                           "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
-                                          "<button class=\"buy\" onclick=\"buy(this,"+gid+")\">立即购买</button>"+
+                                          // "<button class=\"buy\" onclick=\"buy(this,"+gid+")\">立即购买</button>"+
                                     "</div>"+
                              "</div>"
               document.getElementById("carBox").innerHTML=informArr;
@@ -201,6 +201,7 @@ $.ajax({
                                             "<div class=\"weui-media-box__hd\" onclick=\"url(this,"+myCollections[i].gid+")\">"+
                                                 "<img class=\"weui-media-box__thumb\" src=\""+myCollections[i].picture+"\">"+
                                             "</div>"+
+                                            "<div class=\"weui-media-box__bd absolute\" onclick=\"url(this,"+myCollections[i].gid+")\"></div>"+
                                             "<div class=\"weui-media-box__bd\">"+
                                                 "<h4 class=\"weui-media-box__desc\">"+myCollections[i].good_name+"</h4>"+
                                                 "<div class=\"weui-cell caozuo\">"+

@@ -1,4 +1,5 @@
 
+
 var good_name = '';
 var low_price = "";
 var _low_price = "";//传下页面
@@ -275,7 +276,7 @@ $(document).on("click",".del",function(){//修改成这样的写法
                                       if(id==1){
                                           informArr+="<div class=\"btn\">"+
                                             "<button class=\"addCar\" onclick=\"addCars(this,"+gid+")\">加入购物车</button>"+
-                                            "<button class=\"buy\" >立即购买</button>"+
+                                            // "<button class=\"buy\" >立即购买</button>"+
                                           "</div>";
                                       }else if(id==2){
                                         informArr+="<div class=\"btn\">"+
@@ -384,7 +385,7 @@ function like(){
         success : function(data){
             console.log(data);  
             if(data.status==1){
-                $.toast("收藏成功！");
+                $.toast("收藏成功！", "text");
                 $("#qiehuan").attr('src','../images/love.png'); 
             }else{
                  $.ajax({
@@ -396,7 +397,7 @@ function like(){
                     dataType : 'json',
                     success : function(data){
                         console.log(data);  
-                        $.toast("取消收藏成功！");
+                        $.toast("取消收藏成功！", "text");
                         $("#qiehuan").attr('src','../images/like.png'); 
                        
                     },

@@ -1,4 +1,4 @@
-html{
+ html{
     font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
     font-size: 12px;
 }
@@ -47,6 +47,13 @@ input[type="radio"]{
 }
 button{
   -webkit-appearance:none;
+}
+.absolute{
+    position: absolute;
+    height: 80px;
+    width: 74%;
+    top: 10px;
+    left: 15px;
 }
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover ，.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
     color: #2d90e4!important;
@@ -127,22 +134,26 @@ button{
   font-weight: 400;
   margin: 0 15%;
 }
+.weui-icon_toast{
+  margin:0!important;
+}
+.weui-toast--text{
+  padding: 8px 0!important;
+}
 .weui-toast.weui-toast--text.weui-toast--visible{
   text-align: center!important;
   margin: 0 auto!important;
-  height: 50px!important;
 }
-.weui-toast.weui-toast--text.weui-toast--visible .weui-icon-success-no-circle.weui-icon_toast{
-  display: none!important;
-}
+
 ::-webkit-input-placeholder{color:#999;}
 input[type="text"],input[type="password"]{-webkit-appearance:none;appearance:none;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);border-radius:0;}
 .weui-toast{
-  min-height: 40px!important;
-  font-size: 13px!important;
+  min-height: 30px!important;
+  font-size: 10px!important;
 }
 .weui-toast_content{
-  padding: 5px!important;
+  padding:2px 5px!important;
+  display: inline-block!important;
 }
 .swiper-container {
     width: 100%;
@@ -155,5 +166,8 @@ input[type="text"],input[type="password"]{-webkit-appearance:none;appearance:non
 .swiper-pagination-bullet-active{
   background: #ff4444!important;
 }
-
+button.addCar,.jiesuan,.flex .two{
+  background: #000!important;
+  color: #fff!important;
+}
 /*address*/

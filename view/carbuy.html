@@ -19,6 +19,24 @@
   <link rel="stylesheet" type="text/css" href="../css/weui.css">
   <link rel="stylesheet" type="text/css" href="../css/index.css">
   <link rel="stylesheet" type="text/css" href="../css/dingdanInform.css">
+  <style type="text/css">
+    #list .weui-panel__bd{position: relative;}
+    .weui-panel:after{content: none}
+    #list .weui-panel__bd:after{
+      content: " ";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      height: 1px;
+      border-bottom: 1px solid #E5E5E5;
+      color: #E5E5E5;
+      -webkit-transform-origin: 0 100%;
+      transform-origin: 0 100%;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+    }
+  </style>
   <body ontouchstart>
       <div id="app">
           <div class="weui-cells fixed" id="newadd">
@@ -77,7 +95,7 @@
               <div class="weui-cell__bd">
                 <p>配送方式</p>
               </div>
-              <div class="weui-cell__ft"><span class="yunfei">￥</span><span class="expenses"></span></div>
+              <div class="weui-cell__ft"><span class="yunfei"></span><span class="expenses">免运费</span></div>
           </div>
           <a class="weui-cell weui-cell_access write" href="javascript:;">
               <div class="weui-cell__hd">留言</div>
@@ -93,7 +111,7 @@
                 <div class="weui-cell__ft">使用优惠劵</div>
               </a>
           </div> -->
-          <div class="weui-cells">
+          <div class="weui-cells" style="margin-bottom: 100px;">
               <div class="weui-cell sum">
                 <div class="weui-cell__bd">
                   <p>商品金额</p>
@@ -104,7 +122,7 @@
                 <div class="weui-cell__bd">
                   <p>运费</p>
                 </div>
-                <div class="weui-cell__ft red" ><span class="yunfei">￥</span><span class="expenses"></span></div>
+                <div class="weui-cell__ft red" ><span class="yunfei"></span><span class="expenses">免运费</span></div>
               </div>
           </div>
           <!-- foot -->
@@ -121,6 +139,6 @@
       <script type="text/javascript" src="../js/jquery-weui.js"></script>
       <script type="text/javascript" src="../js/vue.min.js"></script>
       <script type="text/javascript" src="../js/public.js"></script>
-      <script type="text/javascript" src="../js/buy.js"></script>
+      <script type="text/javascript" src="../js/carbuy.js"></script>
   </body>
 </html>
