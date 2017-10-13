@@ -104,7 +104,7 @@ h1{
 	flex:1;
 }
 .haibao .niceText .right img{
-	width: 100px;
+	width: 100%;
 	margin-top: 26px;
 }
 .haibao .niceText .left p{
@@ -112,10 +112,8 @@ h1{
 }
 .haibao .niceText .left p a{
 	text-decoration:underline ;
-	border-bottom:1px solid #fff;
 	color:#fff;
 	line-height: 22px;
-	 height: 44px;
     display: -webkit-box;
     display: -moz-box;
     overflow: hidden;

@@ -17,7 +17,7 @@
                                             "</div>"+
                                             "<div class=\"weui-media-box__bd\">"+
                                                 "<h4 class=\"weui-media-box__title\">"+
-                                                "<img class=\"star\" src=\"../images/star.png\">"+friendList[i].wx_name+"<span class=\"littleMeb\">2</span></h4>"+
+                                                "<img class=\"star\" src=\"../images/star.png\">"+friendList[i].wx_name+"<span class=\"littleMeb\"></span></h4>"+
                                                 "<p class=\"weui-media-box__desc\">成为代理商时间："+friendList[i].sharer_time+"</p>"+
                                             "</div>"+
                                             "<div class=\"weui-media-box__hd right\">"+
